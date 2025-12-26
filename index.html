@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mezoki Plumbing Group - Reliable Plumbing Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="branding">
+                <a href="index.html" class="logo">
+                    <img src="photos/business-logo.jpg" alt="Mezoki Logo" class="logo-img"> 
+                    Mezoki
+                </a>
+                <div class="partner-tagline">Trusted Plumbing Professionals</div>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </nav>
+            <div class="nav-ctas">
+                <div class="cta-dropdown-wrapper">
+                    <a href="#" id="requestQuoteBtn" class="cta-btn primary">Request Quote</a>
+                    <button id="requestToggle" class="cta-btn cta-toggle"><span class="fee-badge">₦5k Emergency</span> ▾</button>
+                    <div class="cta-dropdown" id="ctaDropdown">
+                        <a href="#" id="emergencyBtn" class="cta-btn cta-emergency">Emergency: Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Reliable Plumbing You Can Trust</h2>
+                    <p>Expert solutions for homes and businesses across Nigeria. Quality you can depend on, every single time.</p>
+                    <div class="hero-actions">
+                        <button id="bookServiceBtn" class="cta-btn secondary">Book a Service</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-highlight">
+            <div class="container">
+                <h3 class="section-title">Core Services</h3>
+                <div class="service-grid">
+                    <div class="service-box"><i class="fas fa-wrench icon"></i><h4>Leak Repairs</h4><p>Fast detection and fixing.</p></div>
+                    <div class="service-box"><i class="fas fa-toilet icon"></i><h4>Installations</h4><p>Upgrades and new fittings.</p></div>
+                    <div class="service-box"><i class="fas fa-pipe icon"></i><h4>Pipe Fittings</h4><p>Expert pipe replacement.</p></div>
+                    <div class="service-box"><i class="fas fa-burn icon"></i><h4>Water Heaters</h4><p>Maintenance & Repair.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-gallery">
+            <div class="container">
+                <h2 class="section-title">Our Project Gallery</h2>
+                <div style="text-align:center; margin-bottom: 30px;">
+                    <button id="toggleProductsBtn" class="cta-btn secondary">View Our Projects</button>
+                </div>
+                
+                <div class="product-grid" id="productGrid" style="display: none;">
+                    <div class="product-item"><div class="image-container"><img src="photos/Qualifications-Required-for-Residential-Plumbers--scaled.webp" alt="Plumber"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/bathroom tap 1.jpg" alt="Tap"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/AJK_water_proof.jpg" alt="Sealant"></div><h4>Waterproofing</h4></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/bathroom tap 2.jpg" alt="Tap"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/batthroom glass & washing.jpeg" alt="Bathroom Glass"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/Black-304-Stainless-Steel-Shower-Mixer.webp" alt="Shower Mixer"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/different showers.jpeg" alt="Showers"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/ECE_Aruva_Washbasin_55cm_Img_1.webp" alt="Washbasin"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/Grew-shower-with-screen.webp" alt="Shower Screen"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/Kitchen base 1.jpeg" alt="Kitchen Base"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/kitchen tap 1.jpeg" alt="Kitchen Tap"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/modern_bathroom_connection.jpg" alt="Modern Connection"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/silver tap.jpeg" alt="Silver Tap"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Products/Products video 2.mp4" alt="Products video"></div></div>
+                    <div class="product-item"><div class="image-container"><img src="photos/Projects/store video 1.mp4" alt="Store Video"></div></div>
+                    
+                    <div class="product-item">
+                        <video width="100%" height="250" controls style="border-radius:8px; object-fit: cover; background:#000;">
+                            <source src="photos/Projects/Project video 1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="product-item"><div class="image-container"><img src="photos/Projects/second store 2.jpeg" alt="Project Store"></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mezoki Plumbing Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Book via WhatsApp</h3>
+            <form id="bookingForm">
+                <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" required></div>
+                <div class="form-group">
+                    <label>Service Needed</label>
+                    <select id="clientService" name="service" required>
+                        <option value="">-- Select Service --</option>
+                        <option value="General Maintenance">General Maintenance</option>
+                        <option value="Leak Repair">Leak Repair</option>
+                        <option value="Installation">Installation</option>
+                        <option value="Emergency Service">Emergency (₦5,000 Fee)</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Estimated Fee:</label><div id="feeDisplay" class="fee-display-text">₦0</div></div>
+                <div class="form-group"><label>Issue Details</label><textarea name="details" rows="3" placeholder="Tell us what's wrong..."></textarea></div>
+                <button type="submit" class="cta-btn primary" style="width: 100%;">Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="https://wa.me/2348130627292" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="script.js"></script>
+</body>
+</html>
