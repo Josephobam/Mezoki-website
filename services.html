@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Mezoki Plumbing</title>
+  <meta name="description" content="Professional plumbing services including emergency response, installation, home repair and industrial projects.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────────── -->
+  <header class="navbar">
+    <div class="container">
+
+      <div class="branding">
+        <a href="index.html" class="logo">
+          <img src="photos/business-logo.jpg" alt="Mezoki Logo" class="logo-img">
+          Mezoki
+        </a>
+        <span class="partner-tagline" data-i18n="trustedPlumbing">Trusted Plumbing Professionals</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html"               data-i18n="home">Home</a></li>
+          <li><a href="products.html"            data-i18n="products">Products</a></li>
+          <li><a href="services.html" class="active" data-i18n="services">Services</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-ctas">
+        <div class="language-selector">
+          <select id="languageSwitch" class="language-select" aria-label="Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </div>
+        <a href="#" id="requestQuoteBtn" class="cta-btn primary" data-i18n="requestQuote">Request Quote</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main style="padding: 60px 0;">
+    <div class="container">
+      <h2 class="section-title" data-i18n="professionalServices">Professional Services</h2>
+
+      <div class="service-grid">
+
+        <div class="service-box">
+          <i class="fas fa-building icon" aria-hidden="true"></i>
+          <h4 data-i18n="industrialProjects">Industrial Projects</h4>
+          <p data-i18n="certifiedCommercial">Certified commercial plumbing.</p>
+          <a href="#" id="bookServiceBtn" class="service-link-btn">Book Now →</a>
+        </div>
+
+        <div class="service-box">
+          <i class="fas fa-home icon" aria-hidden="true"></i>
+          <h4 data-i18n="homeRepair">Home Repair</h4>
+          <p data-i18n="residentialSupport">24/7 Residential support.</p>
+          <a href="#" id="bookHomeBtn" class="service-link-btn">Book Now →</a>
+        </div>
+
+        <div class="service-box">
+          <i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i>
+          <h4>Emergency Service</h4>
+          <p>Rapid response available anytime, day or night.</p>
+          <a href="#" id="emergencyBtn" class="service-link-btn">Book Emergency →</a>
+        </div>
+
+        <div class="service-box">
+          <i class="fas fa-tools icon" aria-hidden="true"></i>
+          <h4>Maintenance Plans</h4>
+          <p>Regular check-ups and preventive care to avoid costly repairs.</p>
+          <a href="#" id="bookMaintBtn" class="service-link-btn">Learn More →</a>
+        </div>
+
+        <div class="service-box">
+          <i class="fas fa-wrench icon" aria-hidden="true"></i>
+          <h4 data-i18n="leakRepairs">Leak Repairs</h4>
+          <p data-i18n="fastDetection">Fast detection and fixing.</p>
+          <a href="#" id="bookLeakBtn" class="service-link-btn">Book Now →</a>
+        </div>
+
+        <div class="service-box">
+          <i class="fas fa-fire icon" aria-hidden="true"></i>
+          <h4 data-i18n="waterHeaters">Water Heaters</h4>
+          <p data-i18n="maintenanceRepair">Maintenance &amp; Repair.</p>
+          <a href="#" id="bookHeatBtn" class="service-link-btn">Book Now →</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── BOOKING MODAL ─────────────────────────────────────── -->
+  <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" style="display:none;">
+    <div class="modal-content">
+      <button class="close-btn" aria-label="Close">&times;</button>
+      <h3 id="bookingTitle" data-i18n="bookService">Book a Service</h3>
+      <form id="bookingForm" autocomplete="off" novalidate>
+        <div class="form-group">
+          <label for="clientName" data-i18n="clientName">Client Name</label>
+          <input type="text" id="clientName" name="name" required placeholder="Your Full Name" maxlength="100">
+        </div>
+        <div class="form-group">
+          <label for="clientPhone" data-i18n="phoneNumber">Phone Number</label>
+          <input type="tel" id="clientPhone" name="phone" required placeholder="+234 (XXX) XXX-XXXX" maxlength="15">
+        </div>
+        <div class="form-group">
+          <label for="clientService" data-i18n="selectService">Select a Service</label>
+          <select id="clientService" name="service" required>
+            <option value="">-- Select --</option>
+            <option value="Leak Repair">Leak Repair</option>
+            <option value="Installation">Installation</option>
+            <option value="Pipe Fitting">Pipe Fitting</option>
+            <option value="Water Heater Service">Water Heater Service</option>
+            <option value="Emergency Service">Emergency Service</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="consultationFee">Consultation Fee</label>
+          <div class="fee-display"><span id="feeDisplay">₦0</span></div>
+          <input type="hidden" id="serviceFee" name="fee" value="0">
+        </div>
+        <div class="form-group">
+          <label for="clientDetails" data-i18n="serviceDetails">Service Details (Optional)</label>
+          <textarea id="clientDetails" name="details" rows="4" placeholder="Describe your plumbing issue..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="cta-btn secondary" style="width:100%;" data-i18n="submit">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── CART MODAL ───────────────────────────────────────── -->
+  <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-modal-content">
+      <button class="close-cart" aria-label="Close cart">&times;</button>
+      <h3 id="cartTitle" data-i18n="shoppingCart">Shopping Cart</h3>
+      <div class="cart-items"></div>
+      <div class="cart-total">
+        <span data-i18n="totalPrice">Total:</span>
+        <span>₦<span class="total-price">0</span></span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" data-i18n="checkout">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ── FLOATING BUTTONS ─────────────────────────────────── -->
+  <button class="cart-float-btn" id="cartFloatBtn" aria-label="Shopping Cart">
+    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+    <span class="cart-count" aria-live="polite">0</span>
+  </button>
+
+  <a href="https://wa.me/2348130627292" target="_blank" rel="noopener noreferrer"
+     class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer">
+
+    <!-- ── CONTACT SECTION ─────────────────────────────────── -->
+    <section class="contact-section">
+      <div class="container" style="text-align:center; margin-bottom:40px;">
+        <h3 class="section-title">Contact Us</h3>
+        <div style="margin-bottom:18px;">
+          <span>Email: <a href="#" id="emailLink">mosesowodeyi@gmail.com</a></span>
+        </div>
+        <div style="margin-bottom:18px;">
+          <span>Address: <a href="#" id="addressLink">No. 18A Onijemo street, ogba Lagos Nigeria</a></span>
+        </div>
+        <div style="max-width:100%; margin:auto;">
+          <iframe id="mapFrame" src="https://www.google.com/maps?q=No.+18A+Onijemo+street,+ogba+Lagos+Nigeria&output=embed" width="100%" height="280" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <p>&copy; 2026 <strong>Mezoki Plumbing Group</strong>. All rights reserved. Serving Nigeria with Excellence.</p>
+      <p>Quality Plumbing Services &nbsp;|&nbsp; Professional Installation &nbsp;|&nbsp; 24/7 Emergency Support</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
