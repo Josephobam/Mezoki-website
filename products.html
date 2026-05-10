@@ -60,7 +60,7 @@
   <!-- ── BOOKING MODAL ─────────────────────────────────────── -->
   <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" style="display:none;">
     <div class="modal-content">
-      <button class="close-btn" aria-label="Close">&times;</button>
+      <button type="button" class="close-btn" aria-label="Close">&times;</button>
       <h3 id="bookingTitle" data-i18n="bookService">Book a Service</h3>
       <form id="bookingForm" autocomplete="off" novalidate>
         <div class="form-group">
@@ -101,19 +101,19 @@
   <!-- ── CART MODAL ───────────────────────────────────────── -->
   <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
     <div class="cart-modal-content">
-      <button class="close-cart" aria-label="Close cart">&times;</button>
+      <button type="button" class="close-cart" aria-label="Close cart">&times;</button>
       <h3 id="cartTitle" data-i18n="shoppingCart">Shopping Cart</h3>
       <div class="cart-items"></div>
       <div class="cart-total">
         <span data-i18n="totalPrice">Total:</span>
         <span>₦<span class="total-price">0</span></span>
       </div>
-      <button class="checkout-btn" id="checkoutBtn" data-i18n="checkout">Proceed to Checkout</button>
+      <button type="button" class="checkout-btn" id="checkoutBtn" data-i18n="checkout">Proceed to Checkout</button>
     </div>
   </div>
 
   <!-- ── FLOATING BUTTONS ─────────────────────────────────── -->
-  <button class="cart-float-btn" id="cartFloatBtn" aria-label="Shopping Cart">
+  <button type="button" class="cart-float-btn" id="cartFloatBtn" aria-label="Shopping Cart">
     <i class="fas fa-shopping-cart" aria-hidden="true"></i>
     <span class="cart-count" aria-live="polite">0</span>
   </button>

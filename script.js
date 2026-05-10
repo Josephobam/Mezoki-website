@@ -29,7 +29,22 @@ const PRODUCT_IMAGES = [
   "wc 2.jpg",
   "wc 3.jpeg",
   "wc 4.jpeg",
-  "wc 5.jpeg"
+  "wc 5.jpeg",
+  "Available prod 1.jpeg",
+  "Available prod 2.jpeg",
+  "Available prod 3.jpeg",
+  "Available prod 4.jpeg",
+  "Available Prod 5.jpeg",
+  "Modern Artistic Tap and Basin.jpeg",
+  "Modern silver tap balck 2.jpeg",
+  "Modern Tap Black.jpeg",
+  "Modern Washing hand Basin Artistic Black.jpeg",
+  "Modern WC and wahing Basing.jpeg",
+  "Plastic Tap 1.jpeg",
+  "Plastic Tap.jpeg",
+  "Silver Tap 2.jpeg",
+  "Wahing Hand Base 2.jpeg",
+  "White modern Basin.jpeg"
 ];
 
 const PROJECT_IMAGES = [
@@ -56,31 +71,40 @@ function parseProductInfo(filename) {
 }
 
 // Generate product cards for homepage and products page
-function renderProductCards(containerId) {
+function renderProductCards(containerId, maxItems = null) {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.innerHTML = '';
-  PRODUCT_IMAGES.forEach((img, idx) => {
+
+  const cards = maxItems ? PRODUCT_IMAGES.slice(0, maxItems) : PRODUCT_IMAGES;
+
+  cards.forEach((img, idx) => {
     const { name, price } = parseProductInfo(img);
     const imgSrc = `photos/Products/${img}`;
     let card = document.createElement('div');
     card.className = 'product-item';
-    card.setAttribute('data-id', idx+1);
+    card.setAttribute('data-id', idx + 1);
     card.setAttribute('data-name', name);
     if (price) card.setAttribute('data-price', price);
 
     card.innerHTML = `
       <div class="image-container">
         <img src="${imgSrc}" alt="${name}" loading="lazy">
-        <button class="add-overlay-btn" title="Order via WhatsApp" aria-label="Order ${name}">
+        <button type="button" class="add-overlay-btn whatsapp-order-btn" title="Order via WhatsApp" aria-label="Order ${name}" data-name="${name}" data-price="${price||''}">
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="add-overlay-btn" title="Add to Cart" aria-label="Add ${name} to cart" data-id="${idx+1}" data-name="${name}" data-price="${price||''}" style="top: 50px;">
+          <i class="fas fa-plus" aria-hidden="true"></i>
         </button>
       </div>
       <h4>${name}</h4>
       ${price ? `<div class="product-price">Price: ₦${price.toLocaleString('en-NG')}</div>` : ''}
       <div class="product-actions">
-        <button class="add-to-cart-btn-small whatsapp-order-btn" data-name="${name}" data-price="${price||''}">
-          ${price ? 'Buy / Order' : 'Available'}
+        <button type="button" class="add-to-cart-btn-small" data-id="${idx+1}" data-name="${name}" data-price="${price||''}">
+          <i class="fas fa-plus"></i> Add to Cart
+        </button>
+        <button type="button" class="whatsapp-order-btn" data-name="${name}" data-price="${price||''}">
+          <i class="fab fa-whatsapp"></i> ${price ? 'Buy / Order' : 'Available'}
         </button>
       </div>
     `;
@@ -98,6 +122,8 @@ function renderProductCards(containerId) {
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     };
   });
+
+  // Add to cart plus button handler - REMOVED to avoid duplicates
 }
 
 // Generate project gallery cards
@@ -120,13 +146,71 @@ function renderProjectGallery(containerId) {
   });
 }
 
+// Generate dynamic testimonials
+function renderTestimonials(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+
+  const testimonials = [
+    {
+      name: 'Adebayo Johnson',
+      rating: 5,
+      text: 'Outstanding service! They fixed our bathroom leak quickly and professionally. Highly recommend Mezoki Plumbing.'
+    },
+    {
+      name: 'Chiamaka Okoye',
+      rating: 5,
+      text: 'Very reliable team. Installed our new shower system perfectly. Great communication throughout the process.'
+    },
+    {
+      name: 'Musa Ibrahim',
+      rating: 4,
+      text: 'Good work on our pipe replacement. They were punctual and cleaned up after themselves. Will use again.'
+    },
+    {
+      name: 'Ngozi Eze',
+      rating: 5,
+      text: 'Emergency service was a lifesaver! Fixed our burst pipe in under an hour. Thank you Mezoki Plumbing!'
+    },
+    {
+      name: 'Kofi Mensah',
+      rating: 5,
+      text: 'Excellent craftsmanship on our kitchen sink installation. Looks beautiful and works perfectly.'
+    },
+    {
+      name: 'Amina Hassan',
+      rating: 4,
+      text: 'Professional plumbers who know their trade. Fixed our water heater issue efficiently.'
+    }
+  ];
+
+  testimonials.forEach(testimonial => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+    card.innerHTML = `
+      <p>"${testimonial.text}"</p>
+      <div class="testimonial-rating">${stars}</div>
+      <h4>— ${testimonial.name}</h4>
+    `;
+    container.appendChild(card);
+  });
+}
+
 // On DOMContentLoaded, render dynamic product and project cards
 document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('dynamicProductCardsHome')) {
+    renderProductCards('dynamicProductCardsHome', 2);
+  }
   if (document.getElementById('dynamicProductCards')) {
     renderProductCards('dynamicProductCards');
   }
   if (document.getElementById('dynamicProjectGallery')) {
     renderProjectGallery('dynamicProjectGallery');
+  }
+  if (document.getElementById('testimonialsGrid')) {
+    renderTestimonials('testimonialsGrid');
   }
 });
 /* ============================================================
@@ -193,9 +277,9 @@ function applyLanguage(lang) {
 }
 
 function loadTranslations() {
-  fetch('language.json')
+  fetch('languages.json')
     .then(res => {
-      if (!res.ok) throw new Error('language.json not found');
+      if (!res.ok) throw new Error('languages.json not found');
       return res.json();
     })
     .then(data => {
@@ -206,6 +290,15 @@ function loadTranslations() {
       console.warn('Translations not loaded:', err.message);
     });
 }
+
+// Ensure language switcher works on all pages
+document.addEventListener('DOMContentLoaded', () => {
+  $$('#languageSwitch').forEach(sel => {
+    sel.addEventListener('change', function () {
+      applyLanguage(this.value);
+    });
+  });
+});
 
 /* ── Navbar: scroll shadow ──────────────────────────────────── */
 function initNavbar() {
@@ -398,12 +491,11 @@ function removeFromCart(id) {
   updateCartUI();
 }
 
-function changeQty(id, delta) {
-  const item = cart.find(i => i.id === id);
-  if (!item) return;
-  item.qty = Math.max(1, item.qty + delta);
+function clearCart() {
+  cart = [];
   saveCart();
   updateCartUI();
+  showToast('Cart cleared');
 }
 
 function updateCartUI() {
@@ -441,11 +533,11 @@ function updateCartUI() {
             <div class="cart-item-price">${formatNaira(item.price * item.qty)}</div>
           </div>
           <div class="cart-item-qty">
-            <button class="qty-btn decrease" data-id="${item.id}" aria-label="Decrease">−</button>
+            <button type="button" class="qty-btn decrease" data-id="${item.id}" aria-label="Decrease">−</button>
             <span class="qty-btn-display">${item.qty}</span>
-            <button class="qty-btn increase" data-id="${item.id}" aria-label="Increase">+</button>
+            <button type="button" class="qty-btn increase" data-id="${item.id}" aria-label="Increase">+</button>
           </div>
-          <button class="remove-item" data-id="${item.id}" aria-label="Remove">&times;</button>
+          <button type="button" class="remove-item" data-id="${item.id}" aria-label="Remove">&times;</button>
         `;
         itemsContainer.appendChild(row);
       });
@@ -479,12 +571,12 @@ function initCart() {
       }
     }
 
-    // Add to cart (small button or overlay button)
+    // Add to cart (small button or overlay button, but not WhatsApp buttons)
     const addBtn =
       e.target.classList.contains('add-to-cart-btn-small') ? e.target :
       e.target.closest('.add-to-cart-btn-small') ||
-      (e.target.classList.contains('add-overlay-btn') ? e.target : null) ||
-      e.target.closest('.add-overlay-btn');
+      (e.target.classList.contains('add-overlay-btn') && !e.target.classList.contains('whatsapp-order-btn') ? e.target : null) ||
+      (e.target.closest('.add-overlay-btn') && !e.target.closest('.add-overlay-btn').classList.contains('whatsapp-order-btn') ? e.target.closest('.add-overlay-btn') : null);
 
     if (addBtn) {
       const itemEl = addBtn.closest('[data-id]');
@@ -549,6 +641,7 @@ function initCart() {
       });
       message += `\n*Total: ${formatNaira(cartTotal())}*`;
 
+      // WhatsApp checkout link
       window.open(`https://wa.me/2348130627292?text=${encodeURIComponent(message)}`, '_blank');
 
       // Clear after checkout
@@ -558,6 +651,12 @@ function initCart() {
       if (cartModal) cartModal.style.display = 'none';
       showToast('Order sent via WhatsApp! ✓');
     });
+  }
+
+  // Clear cart
+  const clearCartBtn = $('clearCartBtn');
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener('click', clearCart);
   }
 
   // Sync language switchers
