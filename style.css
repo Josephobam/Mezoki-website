@@ -1,85 +1,106 @@
 /* ============================================================
    MEZOKI PLUMBING GROUP — STYLESHEET
-   Design System: Luxury Crimson 3D & Deep Obsidian Red
-   Fully Responsive & Mobile-Optimized
+   Design System: Deep Ocean Sapphire & Midnight Navy 3D
+   Dynamic Hydrodynamic Water Effects & Fully Mobile-Optimized
    ============================================================ */
 
 /* ── 1. DESIGN TOKENS & CSS VARIABLES ─────────────────────── */
 :root {
-  /* Crimson, Ruby & Velvet Red Spectrum */
-  --red-50:            #fff1f2;
-  --red-100:           #ffe4e6;
-  --red-200:           #fecdd3;
-  --red-300:           #fda4af;
-  --red-400:           #fb7185;
-  --red-500:           #f43f5e;
-  --red-600:           #e11d48; /* Primary vibrant crimson */
-  --red-700:           #be123c; /* Rich ruby */
-  --red-800:           #9f1239; /* Deep garnet */
-  --red-900:           #881337; /* Wine */
-  --red-950:           #4c0519; /* Obsidian velvet red */
+  /* Deep Blue, Sapphire & Ocean Spectrum */
+  --blue-50:           #f0f9ff;
+  --blue-100:          #e0f2fe;
+  --blue-200:          #bae6fd;
+  --blue-300:          #7dd3fc;
+  --blue-400:          #38bdf8; /* Vivid Aqua / Cyan */
+  --blue-500:          #0ea5e9; /* Electric Cerulean */
+  --blue-600:          #0284c7; /* Primary Vibrant Ocean Blue */
+  --blue-700:          #0369a1; /* Deep Sapphire */
+  --blue-800:          #075985; /* Rich Marine */
+  --blue-900:          #0c4a6e; /* Oceanic Abyss */
+  --blue-950:          #082f49; /* Midnight Deep Blue */
 
-  /* Dark Velvet & Deep Red Backgrounds */
-  --bg-page:           #0d0306;
-  --bg-page-alt:       #15050b;
-  --bg-surface:        #1d070f;
-  --bg-surface-elev:   #270b15;
-  --bg-glass:          rgba(24, 6, 13, 0.82);
-  --bg-glass-card:     rgba(32, 9, 18, 0.88);
-  --bg-card-inner:     rgba(45, 12, 25, 0.65);
+  --royal-500:         #3b82f6;
+  --royal-600:         #2563eb;
+  --royal-700:         #1d4ed8;
 
-  /* Borders & Highlights */
-  --border-subtle:     rgba(244, 63, 94, 0.18);
-  --border-card:       rgba(244, 63, 94, 0.32);
-  --border-glow:       rgba(251, 113, 133, 0.65);
-  --border-glass:      rgba(255, 255, 255, 0.12);
+  /* Deep Oceanic Backgrounds */
+  --bg-page:           #040a14; /* Deepest Abyss Midnight Navy */
+  --bg-page-alt:       #071324; /* Deep Ocean Floor */
+  --bg-surface:        #0b1c34; /* Marine Slate Card */
+  --bg-surface-elev:   #102646; /* Elevated 3D Glass Card */
+  --bg-glass:          rgba(7, 18, 36, 0.85);
+  --bg-glass-card:     rgba(11, 28, 52, 0.88);
+  --bg-card-inner:     rgba(16, 38, 70, 0.65);
+
+  /* Borders & Aquatic Highlights */
+  --border-subtle:     rgba(56, 189, 248, 0.18);
+  --border-card:       rgba(56, 189, 248, 0.32);
+  --border-glow:       rgba(56, 189, 248, 0.7);
+  --border-glass:      rgba(255, 255, 255, 0.14);
 
   /* Accent Colors */
+  --cyan-glow:         rgba(56, 189, 248, 0.55);
   --gold:              #f59e0b;
-  --gold-light:        #fde68a;
+  --gold-light:        #fef08a;
   --gold-glow:         rgba(245, 158, 11, 0.4);
   --emerald:           #10b981;
   --emerald-dark:      #059669;
   --emerald-bevel:     #047857;
-  --emerald-glow:      rgba(16, 185, 129, 0.4);
+  --danger-crimson:    #e11d48;
+  --danger-bevel:      #881337;
 
   /* Typography Colors */
   --text-white:        #ffffff;
-  --text-primary:      #fff1f2;
-  --text-secondary:    #fecdd3;
-  --text-muted:        #d49aa6;
-  --text-dim:          #9e6c79;
+  --text-primary:      #f0f9ff;
+  --text-secondary:    #bae6fd;
+  --text-muted:        #7dd3fc;
+  --text-dim:          #64748b;
 
   /* Fonts */
   --font-heading:      'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body:         'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* 3D Shadows & Spatial Depth */
+  /* 3D Shadows & Aquatic Depth */
   --shadow-3d-base:
-    0 12px 32px -4px rgba(0, 0, 0, 0.8),
-    0 6px 16px -2px rgba(136, 19, 55, 0.35),
-    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    0 12px 32px -4px rgba(0, 0, 0, 0.85),
+    0 6px 18px -2px rgba(2, 132, 199, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18);
 
   --shadow-3d-hover:
-    0 22px 48px -6px rgba(0, 0, 0, 0.9),
-    0 14px 36px -4px rgba(225, 29, 72, 0.55),
-    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    0 22px 48px -6px rgba(0, 0, 0, 0.95),
+    0 14px 38px -4px rgba(14, 165, 233, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35);
 
-  /* Tactile 3D Buttons */
-  --btn-3d-red:
-    0 5px 0 #700d2b,
-    0 10px 24px rgba(225, 29, 72, 0.5),
-    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  /* Tactile 3D Buttons (Deep Ocean Blue) */
+  --btn-3d-blue:
+    0 5px 0 #073868,
+    0 10px 24px rgba(14, 165, 233, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
 
-  --btn-3d-red-hover:
-    0 7px 0 #700d2b,
-    0 16px 32px rgba(225, 29, 72, 0.7),
-    inset 0 1px 2px rgba(255, 255, 255, 0.55);
+  --btn-3d-blue-hover:
+    0 7px 0 #073868,
+    0 16px 32px rgba(56, 189, 248, 0.8),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
 
-  --btn-3d-red-active:
-    0 1px 0 #700d2b,
-    0 4px 12px rgba(225, 29, 72, 0.4),
-    inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  --btn-3d-blue-active:
+    0 1px 0 #073868,
+    0 4px 12px rgba(14, 165, 233, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.35);
+
+  --btn-3d-secondary:
+    0 5px 0 #06152b,
+    0 10px 22px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+  --btn-3d-secondary-hover:
+    0 7px 0 #06152b,
+    0 15px 30px rgba(56, 189, 248, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35);
+
+  --btn-3d-secondary-active:
+    0 1px 0 #06152b,
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.4);
 
   --btn-3d-emerald:
     0 5px 0 #047857,
@@ -95,21 +116,6 @@
     0 1px 0 #047857,
     0 4px 10px rgba(16, 185, 129, 0.35),
     inset 0 2px 4px rgba(0, 0, 0, 0.3);
-
-  --btn-3d-secondary:
-    0 5px 0 #4c0519,
-    0 10px 22px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
-
-  --btn-3d-secondary-hover:
-    0 7px 0 #4c0519,
-    0 15px 30px rgba(225, 29, 72, 0.4),
-    inset 0 1px 2px rgba(255, 255, 255, 0.35);
-
-  --btn-3d-secondary-active:
-    0 1px 0 #4c0519,
-    0 4px 10px rgba(0, 0, 0, 0.4),
-    inset 0 2px 4px rgba(0, 0, 0, 0.4);
 
   /* Layout */
   --navbar-h:          76px;
@@ -142,17 +148,55 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-page);
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.22) 0%, transparent 60%),
-    radial-gradient(circle at 10% 40%, rgba(159, 18, 57, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 90% 75%, rgba(190, 18, 60, 0.16) 0%, transparent 55%),
-    linear-gradient(180deg, #120409 0%, #0d0306 40%, #15050b 100%);
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.22) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(3, 105, 161, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 90% 75%, rgba(2, 132, 199, 0.16) 0%, transparent 55%),
+    linear-gradient(180deg, #040c1a 0%, #030812 40%, #061122 100%);
   background-attachment: fixed;
   color: var(--text-secondary);
   line-height: 1.65;
   padding-top: var(--navbar-h);
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Atmospheric Ambient Water Bubbles Background */
+.water-bubbles-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.water-bubble {
+  position: absolute;
+  bottom: -40px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6) 0%, rgba(56, 189, 248, 0.2) 40%, rgba(14, 165, 233, 0.05) 80%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px rgba(56, 189, 248, 0.25);
+  animation: bubbleRise linear infinite;
+  pointer-events: none;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.15) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -185,9 +229,162 @@ button, input, select, textarea {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── 3. SECTION TITLES (3D ACCENT) ────────────────────────── */
+/* ── 3. WATER EFFECT ON PAGE LOAD (RIPPLE & DROPLET LOADER) ── */
+.water-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0b1f3c 0%, #030a16 100%);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.water-loader-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.water-loader-stage {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Falling Water Droplet */
+.water-drop {
+  width: 18px;
+  height: 24px;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #38bdf8 50%, #0284c7 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  top: 10px;
+  filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.8));
+  animation: dropFall 0.75s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes dropFall {
+  0% {
+    transform: translateY(-80px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(85px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(95px) scale(1.4, 0.4);
+    opacity: 0;
+  }
+}
+
+/* Concentric Hydro-Ripples */
+.water-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  border: 2.5px solid rgba(56, 189, 248, 0.85);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.7), inset 0 0 14px rgba(56, 189, 248, 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.water-ripple.r1 {
+  animation: rippleSpread 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) 0.65s forwards;
+}
+.water-ripple.r2 {
+  animation: rippleSpread 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) 0.85s forwards;
+}
+.water-ripple.r3 {
+  animation: rippleSpread 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) 1.05s forwards;
+}
+
+@keyframes rippleSpread {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  100% {
+    width: 280px;
+    height: 280px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+    border-width: 1px;
+  }
+}
+
+.water-loader-brand {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: brandReveal 0.8s ease 0.5s both;
+}
+
+@keyframes brandReveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.water-loader-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+}
+
+.water-loader-tag {
+  font-size: 0.78rem;
+  color: var(--blue-300);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Click Water-Ripple Effect */
+.water-click-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(14, 165, 233, 0.2) 50%, transparent 75%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transform: scale(0);
+  animation: clickRipple 0.65s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
+  z-index: 99999;
+}
+
+@keyframes clickRipple {
+  0% {
+    transform: scale(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* ── 4. SECTION TITLES (3D AQUATIC ACCENT) ────────────────── */
 .section-title {
   text-align: center;
   font-size: clamp(1.85rem, 3.8vw, 2.75rem);
@@ -196,7 +393,7 @@ button, input, select, textarea {
   margin-bottom: 48px;
   position: relative;
   padding-bottom: 20px;
-  text-shadow: 0 4px 18px rgba(225, 29, 72, 0.4);
+  text-shadow: 0 4px 20px rgba(2, 132, 199, 0.45);
 }
 
 .section-title::after {
@@ -205,14 +402,14 @@ button, input, select, textarea {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 70px;
+  width: 72px;
   height: 5px;
-  background: linear-gradient(90deg, #f43f5e 0%, #be123c 60%, var(--gold) 100%);
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 50%, var(--gold) 100%);
   border-radius: var(--radius-full);
-  box-shadow: 0 3px 12px rgba(244, 63, 94, 0.65), 0 0 20px rgba(225, 29, 72, 0.5);
+  box-shadow: 0 3px 14px rgba(56, 189, 248, 0.75), 0 0 22px rgba(14, 165, 233, 0.6);
 }
 
-/* ── 4. NAVBAR (3D GLASSMORPHIC HEADER) ───────────────────── */
+/* ── 5. NAVBAR (3D FROSTED NAVY GLASS) ────────────────────── */
 .navbar {
   position: fixed;
   top: 0;
@@ -223,7 +420,7 @@ button, input, select, textarea {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), inset 0 -1px 0 rgba(244, 63, 94, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), inset 0 -1px 0 rgba(56, 189, 248, 0.25);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -231,8 +428,8 @@ button, input, select, textarea {
 }
 
 .navbar.scrolled {
-  background: rgba(16, 4, 9, 0.94);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85), 0 1px 0 rgba(244, 63, 94, 0.35);
+  background: rgba(5, 14, 28, 0.95);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.88), 0 1px 0 rgba(56, 189, 248, 0.35);
   height: 68px;
 }
 
@@ -260,7 +457,7 @@ button, input, select, textarea {
   font-weight: 900;
   color: var(--text-white);
   letter-spacing: -0.03em;
-  text-shadow: 0 2px 10px rgba(225, 29, 72, 0.4);
+  text-shadow: 0 2px 12px rgba(56, 189, 248, 0.5);
 }
 
 .logo-img {
@@ -268,20 +465,20 @@ button, input, select, textarea {
   width: 42px;
   border-radius: 12px;
   object-fit: cover;
-  border: 2px solid var(--red-500);
-  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 2px solid var(--blue-400);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.5);
   transform: perspective(600px) rotateY(-8deg);
   transition: transform 0.3s var(--ease-3d);
 }
 
 .logo:hover .logo-img {
-  transform: perspective(600px) rotateY(0deg) scale(1.06);
+  transform: perspective(600px) rotateY(0deg) scale(1.08);
 }
 
 .partner-tagline {
   font-size: 0.68rem;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--blue-300);
   text-transform: uppercase;
   letter-spacing: 1.6px;
   padding-left: 2px;
@@ -312,23 +509,22 @@ button, input, select, textarea {
   color: var(--text-secondary);
   border: 1px solid transparent;
   transition: all 0.25s var(--ease-smooth);
-  position: relative;
 }
 
 .nav-links a:hover {
   color: var(--text-white);
-  background: rgba(225, 29, 72, 0.16);
-  border-color: rgba(244, 63, 94, 0.3);
-  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.25);
+  background: rgba(14, 165, 233, 0.16);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3);
   transform: translateY(-2px);
 }
 
 .nav-links a.active {
   color: var(--text-white);
-  background: linear-gradient(135deg, rgba(225, 29, 72, 0.3) 0%, rgba(159, 18, 57, 0.35) 100%);
-  border-color: var(--red-500);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.32) 0%, rgba(2, 132, 199, 0.4) 100%);
+  border-color: var(--blue-400);
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
 /* Nav CTAs & Language Switcher */
@@ -353,20 +549,20 @@ button, input, select, textarea {
   font-size: 0.85rem;
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23fb7185' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%2338bdf8' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   transition: all 0.25s var(--ease-smooth);
 }
 
 .language-select:focus,
 .language-select:hover {
-  border-color: var(--red-500);
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.3);
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
 }
 
-/* Mobile Nav Toggle Button (Hamburger) */
+/* Mobile Nav Toggle Button */
 .mobile-nav-toggle {
   display: none;
   width: 44px;
@@ -385,9 +581,9 @@ button, input, select, textarea {
 }
 
 .mobile-nav-toggle:hover {
-  border-color: var(--red-500);
+  border-color: var(--blue-400);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
 }
 
 .hamburger-bar {
@@ -410,7 +606,7 @@ button, input, select, textarea {
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* ── 5. BUTTONS (MASTERCLASS 3D ARCHITECTURE) ─────────────── */
+/* ── 6. BUTTONS (TACTILE 3D OCEANIC ARCHITECTURE) ─────────── */
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -432,7 +628,7 @@ button, input, select, textarea {
   transition: transform 0.16s var(--ease-3d), box-shadow 0.16s ease, filter 0.2s ease;
 }
 
-/* Specular Light Reflection Sweep */
+/* Specular Light Reflection */
 .cta-btn::before {
   content: '';
   position: absolute;
@@ -440,43 +636,43 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   height: 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-/* Primary 3D Button (Crimson / Ruby) */
+/* Primary 3D Button (Ocean Blue) */
 .cta-btn.primary {
-  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 45%, #0369a1 100%);
   color: var(--text-white);
-  box-shadow: var(--btn-3d-red);
+  box-shadow: var(--btn-3d-blue);
 }
 
 .cta-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: var(--btn-3d-red-hover);
-  filter: brightness(1.06);
+  box-shadow: var(--btn-3d-blue-hover);
+  filter: brightness(1.08);
 }
 
 .cta-btn.primary:active {
   transform: translateY(3px);
-  box-shadow: var(--btn-3d-red-active);
+  box-shadow: var(--btn-3d-blue-active);
   filter: brightness(0.96);
 }
 
-/* Secondary 3D Button (Obsidian-Wine with Ruby Edge) */
+/* Secondary 3D Button (Midnight Marine with Aqua Edge) */
 .cta-btn.secondary {
-  background: linear-gradient(180deg, #2f0d1a 0%, #200812 60%, #15050c 100%);
+  background: linear-gradient(180deg, #102646 0%, #0a1b32 60%, #061122 100%);
   color: var(--text-white);
-  border-color: rgba(244, 63, 94, 0.4);
+  border-color: rgba(56, 189, 248, 0.4);
   box-shadow: var(--btn-3d-secondary);
 }
 
 .cta-btn.secondary:hover {
   transform: translateY(-3px);
-  border-color: var(--red-400);
+  border-color: var(--blue-300);
   box-shadow: var(--btn-3d-secondary-hover);
-  color: var(--red-200);
+  color: var(--blue-100);
 }
 
 .cta-btn.secondary:active {
@@ -484,23 +680,22 @@ button, input, select, textarea {
   box-shadow: var(--btn-3d-secondary-active);
 }
 
-/* Emergency 3D Strobe Button */
+/* Emergency 3D Button (Urgent Amber-Red with Cyan Flare) */
 .cta-btn.cta-emergency {
-  background: linear-gradient(180deg, #ff2a55 0%, #e11d48 50%, #990c2f 100%);
+  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 50%, #9f1239 100%);
   color: var(--text-white);
-  box-shadow: var(--btn-3d-red);
+  box-shadow: 0 5px 0 #700d2b, 0 10px 24px rgba(225, 29, 72, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.4);
   width: 100%;
-  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .cta-btn.cta-emergency:hover {
   transform: translateY(-3px);
-  box-shadow: var(--btn-3d-red-hover), 0 0 25px rgba(255, 42, 85, 0.8);
+  box-shadow: 0 7px 0 #700d2b, 0 16px 32px rgba(225, 29, 72, 0.8), 0 0 25px rgba(244, 63, 94, 0.7);
 }
 
 .cta-btn.cta-emergency:active {
   transform: translateY(3px);
-  box-shadow: var(--btn-3d-red-active);
+  box-shadow: 0 1px 0 #700d2b, 0 4px 12px rgba(225, 29, 72, 0.4);
 }
 
 /* Toggle Dropdown Button */
@@ -513,16 +708,16 @@ button, input, select, textarea {
 }
 
 .cta-btn.cta-toggle:hover {
-  border-color: var(--red-500);
-  color: var(--red-300);
+  border-color: var(--blue-400);
+  color: var(--blue-200);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.35);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
 }
 
 /* 3D Fee Badge */
 .fee-badge {
   background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
-  color: #1a050d;
+  color: #030812;
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   font-size: 0.72rem;
@@ -548,7 +743,7 @@ button, input, select, textarea {
   border-radius: var(--radius-lg);
   padding: 14px;
   min-width: 230px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(225, 29, 72, 0.35);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(56, 189, 248, 0.35);
   z-index: 1001;
   backdrop-filter: blur(24px);
   animation: dropdown3D 0.24s var(--ease-3d);
@@ -559,24 +754,24 @@ button, input, select, textarea {
   to   { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0); }
 }
 
-/* 3D Pulsing Animation */
-@keyframes pulse-crimson-3d {
+/* Pulsing Ocean Strobe */
+@keyframes pulse-ocean-3d {
   0% {
-    box-shadow: 0 5px 0 #700d2b, 0 10px 24px rgba(225, 29, 72, 0.5);
+    box-shadow: 0 5px 0 #073868, 0 10px 24px rgba(14, 165, 233, 0.55);
   }
   50% {
-    box-shadow: 0 5px 0 #700d2b, 0 12px 36px rgba(225, 29, 72, 0.85), 0 0 25px rgba(244, 63, 94, 0.6);
+    box-shadow: 0 5px 0 #073868, 0 14px 36px rgba(56, 189, 248, 0.85), 0 0 28px rgba(14, 165, 233, 0.7);
   }
   100% {
-    box-shadow: 0 5px 0 #700d2b, 0 10px 24px rgba(225, 29, 72, 0.5);
+    box-shadow: 0 5px 0 #073868, 0 10px 24px rgba(14, 165, 233, 0.55);
   }
 }
 
 .flash {
-  animation: pulse-crimson-3d 2s infinite ease-in-out;
+  animation: pulse-ocean-3d 2s infinite ease-in-out;
 }
 
-/* ── 6. HERO SECTION (3D DEPTH BANNER) ────────────────────── */
+/* ── 7. HERO SECTION (OCEANIC 3D DEPTH BANNER) ────────────── */
 .hero-section {
   position: relative;
   min-height: 560px;
@@ -586,8 +781,8 @@ button, input, select, textarea {
   justify-content: center;
   text-align: center;
   background:
-    radial-gradient(ellipse 90% 60% at 50% 30%, rgba(225, 29, 72, 0.28) 0%, transparent 70%),
-    linear-gradient(180deg, rgba(13, 3, 6, 0.72) 0%, rgba(13, 3, 6, 0.94) 100%),
+    radial-gradient(ellipse 90% 60% at 50% 30%, rgba(14, 165, 233, 0.28) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(4, 10, 20, 0.75) 0%, rgba(4, 10, 20, 0.94) 100%),
     url('photos/Products/Modern Artistic Tap and Basin.jpeg') center/cover no-repeat;
   overflow: hidden;
 }
@@ -596,7 +791,7 @@ button, input, select, textarea {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, transparent 40%, #0d0306 95%);
+  background: radial-gradient(circle at 50% 50%, transparent 40%, #040a14 95%);
   pointer-events: none;
 }
 
@@ -607,19 +802,19 @@ button, input, select, textarea {
   max-width: 820px;
   margin: 0 auto;
   padding: 42px 36px;
-  background: rgba(26, 6, 14, 0.75);
+  background: rgba(11, 28, 52, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid var(--border-card);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-3d-base), 0 0 50px rgba(225, 29, 72, 0.25);
+  box-shadow: var(--shadow-3d-base), 0 0 50px rgba(14, 165, 233, 0.3);
   transform: perspective(1000px) rotateX(1.5deg);
   transition: transform 0.4s var(--ease-3d);
 }
 
 .hero-content:hover {
   transform: perspective(1000px) rotateX(0deg) translateY(-4px);
-  box-shadow: var(--shadow-3d-hover), 0 0 70px rgba(225, 29, 72, 0.35);
+  box-shadow: var(--shadow-3d-hover), 0 0 70px rgba(56, 189, 248, 0.45);
 }
 
 .hero-content h2 {
@@ -628,7 +823,7 @@ button, input, select, textarea {
   margin-bottom: 20px;
   color: var(--text-white);
   line-height: 1.2;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 35px rgba(225, 29, 72, 0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.55);
 }
 
 .hero-content p {
@@ -671,14 +866,14 @@ button, input, select, textarea {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.18);
 }
 
 .hero-badge i {
-  color: var(--red-400);
+  color: var(--blue-400);
 }
 
-/* ── 7. CORE SERVICES (3D CARDS) ──────────────────────────── */
+/* ── 8. CORE SERVICES (3D HYDRO-CARDS) ────────────────────── */
 .services-highlight {
   padding: 90px 0;
   position: relative;
@@ -711,7 +906,7 @@ button, input, select, textarea {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #f43f5e 0%, #be123c 50%, var(--gold) 100%);
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 50%, var(--gold) 100%);
   opacity: 0.7;
   transition: opacity 0.3s ease, height 0.3s ease;
 }
@@ -725,32 +920,32 @@ button, input, select, textarea {
 .service-box:hover::before {
   opacity: 1;
   height: 6px;
-  box-shadow: 0 2px 14px var(--red-500);
+  box-shadow: 0 2px 16px var(--blue-400);
 }
 
-/* 3D Service Icon */
+/* 3D Service Aquatic Icon */
 .service-box .icon {
   font-size: 2.6rem;
-  color: var(--red-500);
+  color: var(--blue-400);
   margin-bottom: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 72px;
   height: 72px;
-  background: linear-gradient(180deg, rgba(225, 29, 72, 0.22) 0%, rgba(136, 19, 55, 0.1) 100%);
-  border: 1.5px solid rgba(244, 63, 94, 0.4);
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.24) 0%, rgba(2, 132, 199, 0.12) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
   border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3);
   transition: transform 0.35s var(--ease-3d), color 0.3s ease;
 }
 
 .service-box:hover .icon {
   transform: scale(1.12) rotateY(18deg);
   color: #ffffff;
-  background: linear-gradient(180deg, var(--red-500) 0%, var(--red-700) 100%);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.65);
+  background: linear-gradient(180deg, var(--blue-400) 0%, var(--blue-600) 100%);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.7);
 }
 
 .service-box h4 {
@@ -772,24 +967,24 @@ button, input, select, textarea {
   gap: 6px;
   margin-top: 18px;
   padding: 8px 18px;
-  background: rgba(225, 29, 72, 0.15);
-  border: 1px solid rgba(244, 63, 94, 0.3);
+  background: rgba(14, 165, 233, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: var(--radius-full);
   color: var(--text-white);
   font-weight: 700;
   font-size: 0.88rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
   transition: all 0.2s var(--ease-smooth);
 }
 
 .service-link-btn:hover {
-  background: var(--red-600);
-  border-color: var(--red-400);
+  background: var(--blue-600);
+  border-color: var(--blue-300);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.5);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.55);
 }
 
-/* ── 8. PRODUCT SECTIONS (3D PRODUCT CARDS) ───────────────── */
+/* ── 9. PRODUCT SECTIONS (3D PRODUCT CARDS) ───────────────── */
 .homepage-products,
 .products-gallery {
   padding: 90px 0;
@@ -828,7 +1023,7 @@ button, input, select, textarea {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #19050e;
+  background: #08162b;
   border-bottom: 1.5px solid var(--border-subtle);
 }
 
@@ -851,8 +1046,8 @@ button, input, select, textarea {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(22, 5, 12, 0.85);
-  border: 1.5px solid rgba(244, 63, 94, 0.5);
+  background: rgba(7, 18, 36, 0.88);
+  border: 1.5px solid rgba(56, 189, 248, 0.5);
   color: var(--text-white);
   display: flex;
   align-items: center;
@@ -861,7 +1056,7 @@ button, input, select, textarea {
   cursor: pointer;
   z-index: 5;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.35);
   transition: all 0.25s var(--ease-3d);
 }
 
@@ -879,10 +1074,10 @@ button, input, select, textarea {
 }
 
 .add-overlay-btn.add-to-cart-plus:hover {
-  background: var(--red-600);
-  border-color: var(--red-300);
+  background: var(--blue-600);
+  border-color: var(--blue-300);
   color: #ffffff;
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.7);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.7);
 }
 
 .add-overlay-btn.whatsapp-order-btn:hover {
@@ -920,12 +1115,12 @@ button, input, select, textarea {
 .product-price .price-label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--blue-200);
 }
 
 .product-price.contact-price {
   font-size: 0.95rem;
-  color: var(--red-300);
+  color: var(--blue-300);
 }
 
 /* Product Actions (Tactile 3D Buttons) */
@@ -941,7 +1136,7 @@ button, input, select, textarea {
 .add-to-cart-btn-small {
   flex: 1;
   padding: 10px 14px;
-  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 60%, #be123c 100%);
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
   color: var(--text-white);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-sm);
@@ -949,7 +1144,7 @@ button, input, select, textarea {
   font-weight: 700;
   font-size: 0.84rem;
   cursor: pointer;
-  box-shadow: var(--btn-3d-red);
+  box-shadow: var(--btn-3d-blue);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -959,12 +1154,12 @@ button, input, select, textarea {
 
 .add-to-cart-btn-small:hover {
   transform: translateY(-2px);
-  box-shadow: var(--btn-3d-red-hover);
+  box-shadow: var(--btn-3d-blue-hover);
 }
 
 .add-to-cart-btn-small:active {
   transform: translateY(2px);
-  box-shadow: var(--btn-3d-red-active);
+  box-shadow: var(--btn-3d-blue-active);
 }
 
 .action-order-btn {
@@ -996,7 +1191,7 @@ button, input, select, textarea {
   box-shadow: var(--btn-3d-emerald-active);
 }
 
-/* ── 9. CONTACT SECTION & MAP ────────────────────────────── */
+/* ── 10. CONTACT SECTION & MAP ────────────────────────────── */
 .contact-section {
   padding: 90px 0 60px;
   position: relative;
@@ -1032,11 +1227,11 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
   font-size: 0.92rem;
   color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .contact-item i {
-  color: var(--red-400);
+  color: var(--blue-400);
 }
 
 .contact-item a {
@@ -1045,7 +1240,7 @@ button, input, select, textarea {
 }
 
 .contact-item a:hover {
-  color: var(--red-300);
+  color: var(--blue-300);
   text-decoration: underline;
 }
 
@@ -1066,12 +1261,12 @@ button, input, select, textarea {
 
 /* ── 11. FOOTER ───────────────────────────────────────────── */
 .footer {
-  background: #090204;
+  background: #020710;
   border-top: 1px solid var(--border-subtle);
   padding: 40px 0;
   text-align: center;
-  color: var(--text-muted);
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
+  color: var(--blue-300);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.65);
 }
 
 .footer p {
@@ -1093,7 +1288,7 @@ button, input, select, textarea {
   background: linear-gradient(180deg, #25d366 0%, #1da855 60%, #128c46 100%);
   color: var(--text-white);
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   font-size: 1.9rem;
   display: flex;
   align-items: center;
@@ -1119,15 +1314,15 @@ button, input, select, textarea {
   height: 60px;
   bottom: 102px;
   right: 28px;
-  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 60%, #9f1239 100%);
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
   color: var(--text-white);
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   font-size: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 0 #700d2b, 0 12px 28px rgba(225, 29, 72, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 0 #073868, 0 12px 28px rgba(14, 165, 233, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.55);
   z-index: 9999;
   cursor: pointer;
   transition: transform 0.2s var(--ease-3d), box-shadow 0.2s ease;
@@ -1135,12 +1330,12 @@ button, input, select, textarea {
 
 .cart-float-btn:hover {
   transform: scale(1.12) translateY(-3px);
-  box-shadow: 0 8px 0 #700d2b, 0 18px 36px rgba(225, 29, 72, 0.8);
+  box-shadow: 0 8px 0 #073868, 0 18px 36px rgba(56, 189, 248, 0.85);
 }
 
 .cart-float-btn:active {
   transform: translateY(3px) scale(1);
-  box-shadow: 0 2px 0 #700d2b, 0 6px 14px rgba(225, 29, 72, 0.4);
+  box-shadow: 0 2px 0 #073868, 0 6px 14px rgba(14, 165, 233, 0.4);
 }
 
 .cart-count {
@@ -1148,7 +1343,7 @@ button, input, select, textarea {
   top: -4px;
   right: -4px;
   background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
-  color: #120408;
+  color: #040c18;
   border-radius: 50%;
   width: 22px;
   height: 22px;
@@ -1162,13 +1357,13 @@ button, input, select, textarea {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* ── 13. MODALS (3D FROSTED GLASS SHEETS) ─────────────────── */
+/* ── 13. MODALS (3D SAPPHIRE GLASS SHEETS) ────────────────── */
 .modal,
 .cart-modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(8, 2, 5, 0.85);
+  background: rgba(3, 8, 18, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 2000;
@@ -1192,7 +1387,7 @@ button, input, select, textarea {
   width: 100%;
   max-width: 500px;
   position: relative;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(225, 29, 72, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95), 0 0 45px rgba(14, 165, 233, 0.45);
   max-height: 90vh;
   overflow-y: auto;
   animation: modal3D 0.28s var(--ease-3d);
@@ -1215,7 +1410,7 @@ button, input, select, textarea {
   font-weight: 900;
   color: var(--text-white);
   margin-bottom: 24px;
-  text-shadow: 0 2px 10px rgba(225, 29, 72, 0.4);
+  text-shadow: 0 2px 10px rgba(56, 189, 248, 0.45);
 }
 
 .close-btn,
@@ -1226,7 +1421,7 @@ button, input, select, textarea {
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
-  color: var(--text-muted);
+  color: var(--blue-300);
   background: none;
   border: none;
   transition: all 0.2s var(--ease-smooth);
@@ -1234,7 +1429,7 @@ button, input, select, textarea {
 
 .close-btn:hover,
 .close-cart:hover {
-  color: var(--red-400);
+  color: var(--blue-100);
   transform: rotate(90deg) scale(1.1);
 }
 
@@ -1268,9 +1463,9 @@ button, input, select, textarea {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--red-500);
-  background: rgba(35, 10, 20, 0.9);
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.35);
+  border-color: var(--blue-400);
+  background: rgba(16, 40, 74, 0.9);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
 }
 
 .form-group input::placeholder,
@@ -1303,7 +1498,7 @@ button, input, select, textarea {
   width: 5px;
 }
 .cart-items::-webkit-scrollbar-thumb {
-  background: var(--red-700);
+  background: var(--blue-700);
   border-radius: 4px;
 }
 
@@ -1358,8 +1553,8 @@ button, input, select, textarea {
 }
 
 .qty-btn:hover {
-  background: var(--red-600);
-  border-color: var(--red-400);
+  background: var(--blue-600);
+  border-color: var(--blue-300);
 }
 
 .qty-btn-display {
@@ -1376,7 +1571,7 @@ button, input, select, textarea {
   background: rgba(225, 29, 72, 0.15);
   border: 1px solid rgba(244, 63, 94, 0.3);
   border-radius: var(--radius-sm);
-  color: var(--red-300);
+  color: #fda4af;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -1386,7 +1581,7 @@ button, input, select, textarea {
 }
 
 .remove-item:hover {
-  background: var(--red-600);
+  background: #e11d48;
   color: #ffffff;
 }
 
@@ -1417,7 +1612,7 @@ button, input, select, textarea {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  color: var(--text-muted);
+  color: var(--blue-200);
   font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
@@ -1426,14 +1621,14 @@ button, input, select, textarea {
 }
 
 .clear-cart-btn:hover {
-  background: rgba(225, 29, 72, 0.2);
+  background: rgba(56, 189, 248, 0.2);
   color: var(--text-white);
 }
 
 .checkout-btn {
   flex: 1;
   padding: 14px 24px;
-  background: linear-gradient(180deg, #f43f5e 0%, #e11d48 60%, #be123c 100%);
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
   color: var(--text-white);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-md);
@@ -1441,18 +1636,18 @@ button, input, select, textarea {
   font-size: 1rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: var(--btn-3d-red);
+  box-shadow: var(--btn-3d-blue);
   transition: transform 0.15s var(--ease-3d), box-shadow 0.15s ease;
 }
 
 .checkout-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: var(--btn-3d-red-hover);
+  box-shadow: var(--btn-3d-blue-hover);
 }
 
 .checkout-btn:active:not(:disabled) {
   transform: translateY(2px);
-  box-shadow: var(--btn-3d-red-active);
+  box-shadow: var(--btn-3d-blue-active);
 }
 
 .checkout-btn:disabled {
@@ -1476,7 +1671,7 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
   font-size: 0.92rem;
   font-weight: 700;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(225, 29, 72, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(56, 189, 248, 0.55);
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -1506,7 +1701,7 @@ button, input, select, textarea {
     top: var(--navbar-h);
     left: 0;
     width: 100%;
-    background: rgba(18, 4, 10, 0.97);
+    background: rgba(5, 14, 28, 0.97);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border-bottom: 2px solid var(--border-card);
@@ -1514,7 +1709,7 @@ button, input, select, textarea {
     flex-direction: column;
     align-items: stretch;
     gap: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(225, 29, 72, 0.35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(14, 165, 233, 0.35);
     transform: perspective(1000px) rotateX(-15deg) translateY(-20px);
     transform-origin: top center;
     opacity: 0;
@@ -1547,7 +1742,7 @@ button, input, select, textarea {
   }
 
   .nav-links a.active {
-    background: linear-gradient(135deg, rgba(225, 29, 72, 0.4) 0%, rgba(159, 18, 57, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.4) 0%, rgba(2, 132, 199, 0.5) 100%);
   }
 
   .nav-ctas {

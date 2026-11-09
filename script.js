@@ -709,8 +709,84 @@ function init3DEffects() {
   }
 }
 
+/* ── Water Effect Upon Page Load ───────────────────────────── */
+function initWaterLoader() {
+  const overlay = document.createElement('div');
+  overlay.className = 'water-loader-overlay';
+  overlay.innerHTML = `
+    <div class="water-loader-stage">
+      <div class="water-drop"></div>
+      <div class="water-ripple r1"></div>
+      <div class="water-ripple r2"></div>
+      <div class="water-ripple r3"></div>
+    </div>
+    <div class="water-loader-brand">
+      <div class="water-loader-title">Mezoki Plumbing</div>
+      <div class="water-loader-tag">Pure Flow • Quality & Reliability</div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Fade out smoothly after splash & ripple animation completes
+  setTimeout(() => {
+    overlay.classList.add('fade-out');
+    setTimeout(() => overlay.remove(), 550);
+  }, 1350);
+}
+
+/* ── Ambient Background Water Bubbles ──────────────────────── */
+function initWaterBubbles() {
+  const container = document.createElement('div');
+  container.className = 'water-bubbles-bg';
+  const bubbleCount = window.innerWidth < 640 ? 10 : 18;
+
+  for (let i = 0; i < bubbleCount; i++) {
+    const bubble = document.createElement('div');
+    bubble.className = 'water-bubble';
+    const size = Math.random() * 18 + 8;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 8 + 6;
+    const delay = Math.random() * 8;
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${left}%`;
+    bubble.style.animationDuration = `${duration}s`;
+    bubble.style.animationDelay = `${delay}s`;
+
+    container.appendChild(bubble);
+  }
+  document.body.prepend(container);
+}
+
+/* ── Interactive Hydro-Ripple on Clicks ────────────────────── */
+function initWaterClickRipple() {
+  document.addEventListener('click', e => {
+    const target = e.target.closest('.cta-btn, .product-item, .service-box, .logo, .whatsapp-float, .cart-float-btn');
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'water-click-ripple';
+
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    target.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+  });
+}
+
 /* ── Bootstrap ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  initWaterLoader();
+  initWaterBubbles();
+  initWaterClickRipple();
   initNavbar();
   initMobileNav();
   init3DEffects();
