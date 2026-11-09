@@ -13,39 +13,47 @@
 
   <!-- ── NAVBAR ──────────────────────────────────────────────── -->
   <header class="navbar">
-    <div class="container">
+    <div class="container navbar-container">
 
       <div class="branding">
         <a href="index.html" class="logo">
           <img src="photos/business-logo.jpg" alt="Mezoki Logo" class="logo-img">
-          Mezoki
+          <span class="logo-text">Mezoki</span>
         </a>
         <span class="partner-tagline" data-i18n="trustedPlumbing">Trusted Plumbing Services</span>
       </div>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html"    class="active" data-i18n="home">Home</a></li>
-          <li><a href="products.html"            data-i18n="products">Products</a></li>
-          <li><a href="services.html"            data-i18n="services">Services</a></li>
-        </ul>
-      </nav>
+      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
 
-      <div class="nav-ctas">
-        <div class="language-selector">
-          <select id="languageSwitch" class="language-select" aria-label="Language">
-            <option value="en">🇬🇧 English</option>
-            <option value="fr">🇫🇷 Français</option>
-          </select>
-        </div>
+      <div class="nav-menu" id="navMenu">
+        <nav class="nav-links" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html" class="active" data-i18n="home">Home</a></li>
+            <li><a href="products.html" data-i18n="products">Products</a></li>
+            <li><a href="services.html" data-i18n="services">Services</a></li>
+          </ul>
+        </nav>
 
-        <div class="cta-dropdown-wrapper">
-          <a href="#" id="requestQuoteBtn" class="cta-btn primary" data-i18n="requestQuote">Request Quote</a>
-          <button type="button" id="requestToggle" class="cta-btn cta-toggle" aria-expanded="false" aria-haspopup="true">
-            <span class="fee-badge" data-i18n="emergency">₦5k Emergency</span> ▾
-          </button>
-          <div class="cta-dropdown" id="ctaDropdown" role="menu">
-            <a href="#" id="emergencyBtn" class="cta-btn cta-emergency" data-i18n="emergencyBook">Emergency: Book Now</a>
+        <div class="nav-ctas">
+          <div class="language-selector">
+            <select id="languageSwitch" class="language-select" aria-label="Language">
+              <option value="en">🇬🇧 English</option>
+              <option value="fr">🇫🇷 Français</option>
+            </select>
+          </div>
+
+          <div class="cta-dropdown-wrapper">
+            <a href="#" id="requestQuoteBtn" class="cta-btn primary" data-i18n="requestQuote">Request Quote</a>
+            <button type="button" id="requestToggle" class="cta-btn cta-toggle" aria-expanded="false" aria-haspopup="true">
+              <span class="fee-badge" data-i18n="emergency">₦5k Emergency</span> ▾
+            </button>
+            <div class="cta-dropdown" id="ctaDropdown" role="menu">
+              <a href="#" id="emergencyBtn" class="cta-btn cta-emergency" data-i18n="emergencyBook">Emergency: Book Now</a>
+            </div>
           </div>
         </div>
       </div>
@@ -59,10 +67,18 @@
     <section class="hero-section" aria-label="Hero">
       <div class="container">
         <div class="hero-content">
-          <h2 data-i18n="reliablePlumbing">Reliable & Trusted Plumbing Services You Can Count On</h2>
+          <h2 data-i18n="reliablePlumbing">Reliable &amp; Trusted Plumbing Services You Can Count On</h2>
           <p data-i18n="expertSolutions">Expert solutions for homes and businesses across Nigeria. Quality you can depend on, every single time.</p>
           <div class="hero-actions">
-            <button type="button" id="bookServiceBtn" class="cta-btn secondary" data-i18n="bookService">Book a Service</button>
+            <button type="button" id="bookServiceBtn" class="cta-btn primary" data-i18n="bookService">Book a Service</button>
+            <a href="https://wa.me/2348130627292" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge"><i class="fas fa-shield-alt"></i> Certified Plumbers</span>
+            <span class="hero-badge"><i class="fas fa-bolt"></i> 24/7 Rapid Response</span>
+            <span class="hero-badge"><i class="fas fa-check-circle"></i> 100% Guaranteed</span>
           </div>
         </div>
       </div>
@@ -77,21 +93,25 @@
             <i class="fas fa-wrench icon" aria-hidden="true"></i>
             <h4 data-i18n="leakRepairs">Leak Repairs</h4>
             <p data-i18n="fastDetection">Fast detection and fixing.</p>
+            <a href="services.html" class="service-link-btn">Explore Service →</a>
           </div>
           <div class="service-box">
             <i class="fas fa-toilet icon" aria-hidden="true"></i>
             <h4 data-i18n="installations">Installations</h4>
             <p data-i18n="upgradesNew">Upgrades and new fittings.</p>
+            <a href="services.html" class="service-link-btn">Explore Service →</a>
           </div>
           <div class="service-box">
             <i class="fas fa-grip-lines-vertical icon" aria-hidden="true"></i>
             <h4 data-i18n="pipeFittings">Pipe Fittings</h4>
             <p data-i18n="expertPipe">Expert pipe replacement.</p>
+            <a href="services.html" class="service-link-btn">Explore Service →</a>
           </div>
           <div class="service-box">
             <i class="fas fa-fire icon" aria-hidden="true"></i>
             <h4 data-i18n="waterHeaters">Water Heaters</h4>
             <p data-i18n="maintenanceRepair">Maintenance &amp; Repair.</p>
+            <a href="services.html" class="service-link-btn">Explore Service →</a>
           </div>
         </div>
       </div>
@@ -101,11 +121,11 @@
     <section class="homepage-products">
       <div class="container">
         <h3 class="section-title" data-i18n="ourProducts">Our Products</h3>
-        <div class="product-grid">
-
-        <!-- Featured products will be dynamically generated by script.js -->
-        <div id="dynamicProductCardsHome"></div>
-
+        <div class="product-grid" id="dynamicProductCardsHome">
+          <!-- Featured products will be dynamically generated by script.js -->
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="products.html" class="cta-btn primary">View Full Catalog →</a>
         </div>
       </div>
     </section>
@@ -129,8 +149,29 @@
         </div>
 
         <div class="product-grid" id="productGrid" style="display:none;">
-          <!-- Project gallery images will be dynamically generated by script.js -->
           <div id="dynamicProjectGallery"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT SECTION ─────────────────────────────────── -->
+    <section class="contact-section">
+      <div class="container">
+        <h3 class="section-title">Contact Us</h3>
+        <div class="contact-card">
+          <div class="contact-info-row">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>Email: <a href="#" id="emailLink">mosesowodeyi@gmail.com</a></span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Address: <a href="#" id="addressLink">No. 18A Onijemo street, ogba Lagos Nigeria</a></span>
+            </div>
+          </div>
+          <div class="map-container">
+            <iframe id="mapFrame" src="https://www.google.com/maps?q=No.+18A+Onijemo+street,+ogba+Lagos+Nigeria&output=embed" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -172,7 +213,7 @@
           <textarea id="clientDetails" name="details" rows="4" placeholder="Describe your plumbing issue..."></textarea>
         </div>
         <div class="form-actions">
-          <button type="submit" class="cta-btn secondary" style="width:100%;" data-i18n="submit">Submit Request</button>
+          <button type="submit" class="cta-btn primary" style="width:100%;" data-i18n="submit">Submit Request</button>
         </div>
       </form>
     </div>
@@ -205,22 +246,6 @@
      class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
-
-  <!-- ── CONTACT SECTION ─────────────────────────────────── -->
-  <section class="contact-section">
-    <div class="container" style="text-align:center; margin-bottom:40px;">
-      <h3 class="section-title">Contact Us</h3>
-      <div style="margin-bottom:18px;">
-        <span>Email: <a href="#" id="emailLink">mosesowodeyi@gmail.com</a></span>
-      </div>
-      <div style="margin-bottom:18px;">
-        <span>Address: <a href="#" id="addressLink">No. 18A Onijemo street, ogba Lagos Nigeria</a></span>
-      </div>
-      <div style="max-width:100%; margin:auto;">
-        <iframe id="mapFrame" src="https://www.google.com/maps?q=No.+18A+Onijemo+street,+ogba+Lagos+Nigeria&output=embed" width="100%" height="280" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </section>
 
   <!-- ── FOOTER ───────────────────────────────────────────── -->
   <footer class="footer">

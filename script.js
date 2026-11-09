@@ -93,18 +93,20 @@ function renderProductCards(containerId, maxItems = null) {
         <button type="button" class="add-overlay-btn whatsapp-order-btn" title="Order via WhatsApp" aria-label="Order ${name}" data-name="${name}" data-price="${price||''}">
           <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </button>
-        <button type="button" class="add-overlay-btn" title="Add to Cart" aria-label="Add ${name} to cart" data-id="${idx+1}" data-name="${name}" data-price="${price||''}" style="top: 50px;">
-          <i class="fas fa-plus" aria-hidden="true"></i>
+        <button type="button" class="add-overlay-btn add-to-cart-plus" title="Add to Cart" aria-label="Add ${name} to cart" data-id="${idx+1}" data-name="${name}" data-price="${price||''}">
+          <i class="fas fa-cart-plus" aria-hidden="true"></i>
         </button>
       </div>
-      <h4>${name}</h4>
-      ${price ? `<div class="product-price">Price: ₦${price.toLocaleString('en-NG')}</div>` : ''}
+      <div class="product-info-wrap">
+        <h4>${name}</h4>
+        ${price ? `<div class="product-price"><span class="price-label">Price:</span> <span class="price-amount">₦${price.toLocaleString('en-NG')}</span></div>` : '<div class="product-price contact-price"><span>Contact for Price</span></div>'}
+      </div>
       <div class="product-actions">
         <button type="button" class="add-to-cart-btn-small" data-id="${idx+1}" data-name="${name}" data-price="${price||''}">
-          <i class="fas fa-plus"></i> Add to Cart
+          <i class="fas fa-cart-plus"></i> Add to Cart
         </button>
-        <button type="button" class="whatsapp-order-btn" data-name="${name}" data-price="${price||''}">
-          <i class="fab fa-whatsapp"></i> ${price ? 'Buy / Order' : 'Available'}
+        <button type="button" class="whatsapp-order-btn action-order-btn" data-name="${name}" data-price="${price||''}">
+          <i class="fab fa-whatsapp"></i> ${price ? 'Order via WhatsApp' : 'Inquire Now'}
         </button>
       </div>
     `;
@@ -399,9 +401,27 @@ function initBookingModal() {
       return;
     }
 
-    if (tgt.id === 'emergencyBtn' || tgt.closest('#emergencyBtn')) {
+    if (id === 'emergencyBtn' || id === 'emergencyServiceBtn' || tgt.closest('#emergencyBtn') || tgt.closest('#emergencyServiceBtn')) {
       e.preventDefault();
       openModal('Emergency Service');
+      return;
+    }
+
+    if (id === 'bookLeakBtn' || tgt.closest('#bookLeakBtn')) {
+      e.preventDefault();
+      openModal('Leak Repair');
+      return;
+    }
+
+    if (id === 'bookHeatBtn' || tgt.closest('#bookHeatBtn')) {
+      e.preventDefault();
+      openModal('Water Heater Service');
+      return;
+    }
+
+    if (id === 'bookHomeBtn' || id === 'bookMaintBtn' || tgt.closest('#bookHomeBtn') || tgt.closest('#bookMaintBtn')) {
+      e.preventDefault();
+      openModal('Installation');
       return;
     }
 
@@ -689,9 +709,66 @@ function initContactLinks() {
   }
 }
 
+/* ── Mobile Navigation Drawer ────────────────────────────── */
+function initMobileNav() {
+  const toggle = document.getElementById('mobileNavToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (!toggle || !navMenu) return;
+
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    toggle.classList.toggle('active', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close mobile menu when clicking any nav link
+  navMenu.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', e => {
+    if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !toggle.contains(e.target)) {
+      navMenu.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+/* ── Interactive 3D Tilt Effect on Desktop ─────────────────── */
+function init3DEffects() {
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.addEventListener('mousemove', e => {
+      const card = e.target.closest('.product-item, .service-box, .testimonial-card');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const tiltX = -(y / (rect.height / 2)) * 6.5;
+      const tiltY = (x / (rect.width / 2)) * 6.5;
+      card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px)`;
+    });
+
+    document.addEventListener('mouseout', e => {
+      const card = e.target.closest('.product-item, .service-box, .testimonial-card');
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+        card.style.transform = '';
+      }
+    });
+  }
+}
+
 /* ── Bootstrap ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initMobileNav();
+  init3DEffects();
   initQuoteFlash();
   initEmergencyDropdown();
   initBookingModal();
