@@ -148,58 +148,6 @@ function renderProjectGallery(containerId) {
   });
 }
 
-// Generate dynamic testimonials
-function renderTestimonials(containerId) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.innerHTML = '';
-
-  const testimonials = [
-    {
-      name: 'Adebayo Johnson',
-      rating: 5,
-      text: 'Outstanding service! They fixed our bathroom leak quickly and professionally. Highly recommend Mezoki Plumbing.'
-    },
-    {
-      name: 'Chiamaka Okoye',
-      rating: 5,
-      text: 'Very reliable team. Installed our new shower system perfectly. Great communication throughout the process.'
-    },
-    {
-      name: 'Musa Ibrahim',
-      rating: 4,
-      text: 'Good work on our pipe replacement. They were punctual and cleaned up after themselves. Will use again.'
-    },
-    {
-      name: 'Ngozi Eze',
-      rating: 5,
-      text: 'Emergency service was a lifesaver! Fixed our burst pipe in under an hour. Thank you Mezoki Plumbing!'
-    },
-    {
-      name: 'Kofi Mensah',
-      rating: 5,
-      text: 'Excellent craftsmanship on our kitchen sink installation. Looks beautiful and works perfectly.'
-    },
-    {
-      name: 'Amina Hassan',
-      rating: 4,
-      text: 'Professional plumbers who know their trade. Fixed our water heater issue efficiently.'
-    }
-  ];
-
-  testimonials.forEach(testimonial => {
-    const card = document.createElement('div');
-    card.className = 'testimonial-card';
-    const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
-    card.innerHTML = `
-      <p>"${testimonial.text}"</p>
-      <div class="testimonial-rating">${stars}</div>
-      <h4>— ${testimonial.name}</h4>
-    `;
-    container.appendChild(card);
-  });
-}
-
 // On DOMContentLoaded, render dynamic product and project cards
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('dynamicProductCardsHome')) {
@@ -210,9 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (document.getElementById('dynamicProjectGallery')) {
     renderProjectGallery('dynamicProjectGallery');
-  }
-  if (document.getElementById('testimonialsGrid')) {
-    renderTestimonials('testimonialsGrid');
   }
 });
 /* ============================================================
@@ -745,7 +690,7 @@ function initMobileNav() {
 function init3DEffects() {
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.addEventListener('mousemove', e => {
-      const card = e.target.closest('.product-item, .service-box, .testimonial-card');
+      const card = e.target.closest('.product-item, .service-box');
       if (!card) return;
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
@@ -756,7 +701,7 @@ function init3DEffects() {
     });
 
     document.addEventListener('mouseout', e => {
-      const card = e.target.closest('.product-item, .service-box, .testimonial-card');
+      const card = e.target.closest('.product-item, .service-box');
       if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
         card.style.transform = '';
       }

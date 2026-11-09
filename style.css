@@ -996,77 +996,7 @@ button, input, select, textarea {
   box-shadow: var(--btn-3d-emerald-active);
 }
 
-/* ── 9. TESTIMONIALS (3D CARDS) ──────────────────────────── */
-.testimonials-section {
-  padding: 90px 0;
-  position: relative;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(225, 29, 72, 0.14) 0%, transparent 70%),
-    linear-gradient(180deg, #100307 0%, #17060d 50%, #100307 100%);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 28px;
-}
-
-.testimonial-card {
-  background: var(--bg-glass-card);
-  backdrop-filter: blur(16px);
-  padding: 36px 30px;
-  border-radius: var(--radius-lg);
-  border: 1.5px solid var(--border-card);
-  border-left: 5px solid var(--red-500);
-  box-shadow: var(--shadow-3d-base);
-  position: relative;
-  transition: transform 0.3s var(--ease-3d), box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-}
-
-.testimonial-card::before {
-  content: '\201C';
-  position: absolute;
-  top: 10px;
-  right: 22px;
-  font-size: 4.8rem;
-  color: rgba(244, 63, 94, 0.18);
-  font-family: Georgia, serif;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-8px) perspective(900px) rotateX(2deg);
-  box-shadow: var(--shadow-3d-hover);
-  border-color: var(--border-glow);
-}
-
-.testimonial-card p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.75;
-  font-style: italic;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial-rating {
-  color: var(--gold);
-  font-size: 1.05rem;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px var(--gold-glow);
-}
-
-.testimonial-card h4 {
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: var(--text-white);
-  letter-spacing: 0.02em;
-}
-
-/* ── 10. CONTACT SECTION & MAP ────────────────────────────── */
+/* ── 9. CONTACT SECTION & MAP ────────────────────────────── */
 .contact-section {
   padding: 90px 0 60px;
   position: relative;
@@ -1694,8 +1624,7 @@ button, input, select, textarea {
   }
 
   .service-grid,
-  .product-grid,
-  .testimonials-grid {
+  .product-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
