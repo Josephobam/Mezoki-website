@@ -9,60 +9,60 @@ const WHATSAPP_NUMBER = '2348130627292';
 
 // ── PRODUCT CATALOG (All 51 Fixtures with WebP & Available Status) ──
 const PRODUCTS = [
-  // ── 🔥 NEW ARRIVALS (Newly added luxury products) ──────────
-  { id: 1, file: 'Smart Digital Waterfall Kitchen Sink.webp', name: 'Smart Digital Waterfall Kitchen Sink', cat: 'sinks', isNew: true },
-  { id: 2, file: 'Smart Matte Black Workstation Sink.webp', name: 'Smart Matte Black Workstation Sink', cat: 'sinks', isNew: true },
-  { id: 3, file: 'Luxury Smart Jacuzzi Massage Bathtub.webp', name: 'Luxury Smart Jacuzzi Massage Bathtub', cat: 'baths', isNew: true },
-  { id: 4, file: 'Concealed Conduit Rain Shower System.webp', name: 'Concealed Conduit Rain Shower System', cat: 'showers', isNew: true },
-  { id: 5, file: 'Modern Bathroom Vanity Cabinet.webp', name: 'Modern Bathroom Vanity Cabinet with LED Mirror', cat: 'cabinets', isNew: true },
-  { id: 6, file: 'Luxury Smart Wall-Hung Concealed WC.webp', name: 'Luxury Smart Wall-Hung Concealed WC Toilet', cat: 'toilets', isNew: true },
-  { id: 7, file: 'Luxury Freestanding Bathtub with Mixer.webp', name: 'Luxury Freestanding Bathtub with Mixer Tap', cat: 'baths', isNew: true },
-  { id: 8, file: 'Modern Oval Freestanding Bathtub.webp', name: 'Modern Oval Freestanding Soaking Bathtub', cat: 'baths', isNew: true },
-  { id: 9, file: 'Classic Royal Clawfoot Bathtub.webp', name: 'Classic Royal Clawfoot Bathtub with Gold Legs', cat: 'baths', isNew: true },
-  { id: 10, file: 'Modern Ceramic S-Trap WC Toilet.webp', name: 'Modern Ceramic S-Trap One-Piece WC Toilet', cat: 'toilets', isNew: true },
+  // ── 🔥 FEATURED NEW ARRIVALS (Priority Highlight Fixtures) ──
+  { id: 1, file: 'Modern Ceramic S-Trap WC Toilet.webp', name: 'Modern S-Trap WC Ceramic Toilet', cat: 'toilets', keywords: 's-trap s trap strap wc toilet ceramic commode water closet one-piece s-trap wc', isNew: true },
+  { id: 2, file: 'Luxury Shower Room Glass Enclosure.webp', name: 'Luxury Shower Room Glass Enclosure Cubicle', cat: 'showers', keywords: 'shower room showerroom glass cubicle enclosure shower screen cabin luxury bathroom', isNew: true },
+  { id: 3, file: 'Smart Digital Waterfall Kitchen Sink.webp', name: 'Smart Digital Waterfall Kitchen Sink', cat: 'sinks', keywords: 'smart sink waterfall digital workstation kitchen basin', isNew: true },
+  { id: 4, file: 'Smart Matte Black Workstation Sink.webp', name: 'Smart Matte Black Workstation Sink', cat: 'sinks', keywords: 'smart sink matte black workstation kitchen basin', isNew: true },
+  { id: 5, file: 'Luxury Smart Jacuzzi Massage Bathtub.webp', name: 'Luxury Smart Jacuzzi Massage Bathtub', cat: 'baths', keywords: 'jacuzzi massage bath bathtub whirlpool luxury hot tub', isNew: true },
+  { id: 6, file: 'Concealed Conduit Rain Shower System.webp', name: 'Concealed Conduit Rain Shower System', cat: 'showers', keywords: 'shower rain shower concealed conduit mixer system head wall', isNew: true },
+  { id: 7, file: 'Modern Bathroom Vanity Cabinet.webp', name: 'Modern Bathroom Vanity Cabinet with LED Mirror', cat: 'cabinets', keywords: 'cabinet vanity basin mirror led bathroom storage modern', isNew: true },
+  { id: 8, file: 'Luxury Smart Wall-Hung Concealed WC.webp', name: 'Luxury Smart Wall-Hung Concealed WC Toilet', cat: 'toilets', keywords: 'wc toilet wall-hung concealed smart commode water closet', isNew: true },
+  { id: 9, file: 'Luxury Freestanding Bathtub with Mixer.webp', name: 'Luxury Freestanding Bathtub with Mixer Tap', cat: 'baths', keywords: 'bathtub freestanding bath tub mixer tap luxury stand alone', isNew: true },
+  { id: 10, file: 'Modern Oval Freestanding Bathtub.webp', name: 'Modern Oval Freestanding Soaking Bathtub', cat: 'baths', keywords: 'bathtub oval freestanding soaking bath tub acrylic', isNew: true },
+  { id: 11, file: 'Classic Royal Clawfoot Bathtub.webp', name: 'Classic Royal Clawfoot Bathtub with Gold Legs', cat: 'baths', keywords: 'bathtub clawfoot royal vintage gold legs bath tub stand alone', isNew: true },
 
   // ── LUXURY & PREMIUM FIXTURES ─────────────────────────────
-  { id: 11, file: 'Luxury Shower Room Glass Enclosure.webp', name: 'Luxury Shower Room Glass Enclosure', cat: 'showers', isNew: false },
-  { id: 12, file: 'Cabinet Basin with LED Mirror Light Deluxe.webp', name: 'Cabinet Basin with LED Mirror Light Deluxe', cat: 'cabinets', isNew: false },
-  { id: 13, file: 'Cabinet Basin with LED Mirror Light.webp', name: 'Cabinet Basin with LED Mirror Light', cat: 'cabinets', isNew: false },
-  { id: 14, file: 'Basin and Mirror Cabinet Vanity.webp', name: 'Basin and Mirror Cabinet Vanity', cat: 'cabinets', isNew: false },
-  { id: 15, file: 'Bathroom Glass and Washing Basin Set.webp', name: 'Bathroom Glass and Washing Basin Set', cat: 'cabinets', isNew: false },
-  { id: 16, file: 'Bathroom Premium Mixer Tap.webp', name: 'Bathroom Premium Mixer Tap', cat: 'taps', isNew: false },
-  { id: 17, file: 'Rain Shower with Screen and Mixer.webp', name: 'Rain Shower with Screen and Mixer', cat: 'showers', isNew: false },
-  { id: 18, file: 'Wall Concealed Basin Tap.webp', name: 'Wall Concealed Basin Tap', cat: 'taps', isNew: false },
-  { id: 19, file: 'Modern Water Closet Toilet.webp', name: 'Modern Water Closet Toilet', cat: 'toilets', isNew: false },
-  { id: 20, file: 'Modern Black Kitchen Sink.webp', name: 'Modern Black Kitchen Sink', cat: 'sinks', isNew: false },
-  { id: 21, file: 'Black Stainless Steel Shower Mixer.webp', name: 'Black Stainless Steel Shower Mixer', cat: 'showers', isNew: false },
-  { id: 22, file: 'Luxury Gold Basin Tap.webp', name: 'Luxury Gold Basin Tap', cat: 'taps', isNew: false },
-  { id: 23, file: 'Luxury Gold Basin Tap Elegance.webp', name: 'Luxury Gold Basin Tap Elegance', cat: 'taps', isNew: false },
-  { id: 24, file: 'Polished Silver Basin Tap.webp', name: 'Polished Silver Basin Tap', cat: 'taps', isNew: false },
-  { id: 25, file: 'Ceramic Countertop Washbasin.webp', name: 'Ceramic Countertop Washbasin', cat: 'basins', isNew: false },
-  { id: 26, file: 'Basin Tap Classic.webp', name: 'Basin Tap Classic', cat: 'taps', isNew: false },
-  { id: 27, file: 'Available Basin Mixer Tap 1.webp', name: 'Available Basin Mixer Tap 1', cat: 'taps', isNew: false },
-  { id: 28, file: 'Available Basin Mixer Tap 2.webp', name: 'Available Basin Mixer Tap 2', cat: 'taps', isNew: false },
-  { id: 29, file: 'Available Basin Mixer Tap 3.webp', name: 'Available Basin Mixer Tap 3', cat: 'taps', isNew: false },
-  { id: 30, file: 'Available Basin Mixer Tap 4.webp', name: 'Available Basin Mixer Tap 4', cat: 'taps', isNew: false },
-  { id: 31, file: 'Available Basin Mixer Tap 5.webp', name: 'Available Basin Mixer Tap 5', cat: 'taps', isNew: false },
-  { id: 32, file: 'Modern Artistic Tap and Basin.webp', name: 'Modern Artistic Tap and Basin Set', cat: 'basins', isNew: false },
-  { id: 33, file: 'Modern Tap Black.webp', name: 'Modern Tap Matte Black', cat: 'taps', isNew: false },
-  { id: 34, file: 'Modern Silver Tap Black 2.webp', name: 'Modern Silver Tap Black 2', cat: 'taps', isNew: false },
-  { id: 35, file: 'Modern Washing Hand Basin Artistic Black.webp', name: 'Modern Washing Hand Basin Artistic Black', cat: 'basins', isNew: false },
-  { id: 36, file: 'Modern WC and Washing Basin.webp', name: 'Modern WC and Washing Basin Set', cat: 'toilets', isNew: false },
-  { id: 37, file: 'White Modern Ceramic Basin.webp', name: 'White Modern Ceramic Basin', cat: 'basins', isNew: false },
-  { id: 38, file: 'Washing Hand Basin 1.webp', name: 'Washing Hand Basin Model 1', cat: 'basins', isNew: false },
-  { id: 39, file: 'Washing Hand Basin 2.webp', name: 'Washing Hand Basin Model 2', cat: 'basins', isNew: false },
-  { id: 40, file: 'Modern Water Closet Model 1.webp', name: 'Modern Water Closet Model 1', cat: 'toilets', isNew: false },
-  { id: 41, file: 'Modern Water Closet Model 2.webp', name: 'Modern Water Closet Model 2', cat: 'toilets', isNew: false },
-  { id: 42, file: 'Modern Water Closet Model 3.webp', name: 'Modern Water Closet Model 3', cat: 'toilets', isNew: false },
-  { id: 43, file: 'Modern Water Closet Model 4.webp', name: 'Modern Water Closet Model 4', cat: 'toilets', isNew: false },
-  { id: 44, file: 'Modern Water Closet Model 5.webp', name: 'Modern Water Closet Model 5', cat: 'toilets', isNew: false },
-  { id: 45, file: 'Silver Tap Chrome.webp', name: 'Silver Tap Chrome', cat: 'taps', isNew: false },
-  { id: 46, file: 'Silver Tap Dual Set.webp', name: 'Silver Tap Dual Set', cat: 'taps', isNew: false },
-  { id: 47, file: 'Silver Tap Model 2.webp', name: 'Silver Tap Model 2', cat: 'taps', isNew: false },
-  { id: 48, file: 'T-UK Premium Tap.webp', name: 'T-UK Premium Tap', cat: 'taps', isNew: false },
-  { id: 49, file: 'Plastic Tap 1.webp', name: 'Plastic Tap Model 1', cat: 'taps', isNew: false },
-  { id: 50, file: 'Plastic Tap Standard.webp', name: 'Plastic Tap Standard', cat: 'taps', isNew: false },
-  { id: 51, file: 'Washing Machine Angle Tap.webp', name: 'Washing Machine Angle Tap', cat: 'taps', isNew: false }
+  { id: 12, file: 'Cabinet Basin with LED Mirror Light Deluxe.webp', name: 'Cabinet Basin with LED Mirror Light Deluxe', cat: 'cabinets', keywords: 'cabinet basin vanity mirror light led', isNew: false },
+  { id: 13, file: 'Cabinet Basin with LED Mirror Light.webp', name: 'Cabinet Basin with LED Mirror Light', cat: 'cabinets', keywords: 'cabinet basin vanity mirror light led', isNew: false },
+  { id: 14, file: 'Basin and Mirror Cabinet Vanity.webp', name: 'Basin and Mirror Cabinet Vanity', cat: 'cabinets', keywords: 'basin mirror cabinet vanity bathroom', isNew: false },
+  { id: 15, file: 'Bathroom Glass and Washing Basin Set.webp', name: 'Bathroom Glass and Washing Basin Set', cat: 'cabinets', keywords: 'bathroom glass washing basin vanity set', isNew: false },
+  { id: 16, file: 'Bathroom Premium Mixer Tap.webp', name: 'Bathroom Premium Mixer Tap', cat: 'taps', keywords: 'tap mixer faucet bathroom water', isNew: false },
+  { id: 17, file: 'Rain Shower with Screen and Mixer.webp', name: 'Rain Shower with Screen and Mixer', cat: 'showers', keywords: 'shower rain screen mixer set head', isNew: false },
+  { id: 18, file: 'Wall Concealed Basin Tap.webp', name: 'Wall Concealed Basin Tap', cat: 'taps', keywords: 'wall concealed tap faucet mixer basin', isNew: false },
+  { id: 19, file: 'Modern Water Closet Toilet.webp', name: 'Modern Water Closet Toilet', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 20, file: 'Modern Black Kitchen Sink.webp', name: 'Modern Black Kitchen Sink', cat: 'sinks', keywords: 'kitchen sink black basin washing', isNew: false },
+  { id: 21, file: 'Black Stainless Steel Shower Mixer.webp', name: 'Black Stainless Steel Shower Mixer', cat: 'showers', keywords: 'shower mixer black stainless steel bathroom', isNew: false },
+  { id: 22, file: 'Luxury Gold Basin Tap.webp', name: 'Luxury Gold Basin Tap', cat: 'taps', keywords: 'gold tap faucet mixer basin luxury', isNew: false },
+  { id: 23, file: 'Luxury Gold Basin Tap Elegance.webp', name: 'Luxury Gold Basin Tap Elegance', cat: 'taps', keywords: 'gold tap faucet mixer basin luxury elegance', isNew: false },
+  { id: 24, file: 'Polished Silver Basin Tap.webp', name: 'Polished Silver Basin Tap', cat: 'taps', keywords: 'silver tap faucet mixer basin chrome', isNew: false },
+  { id: 25, file: 'Ceramic Countertop Washbasin.webp', name: 'Ceramic Countertop Washbasin', cat: 'basins', keywords: 'ceramic washbasin sink basin countertop', isNew: false },
+  { id: 26, file: 'Basin Tap Classic.webp', name: 'Basin Tap Classic', cat: 'taps', keywords: 'basin tap faucet classic', isNew: false },
+  { id: 27, file: 'Available Basin Mixer Tap 1.webp', name: 'Available Basin Mixer Tap 1', cat: 'taps', keywords: 'basin mixer tap faucet', isNew: false },
+  { id: 28, file: 'Available Basin Mixer Tap 2.webp', name: 'Available Basin Mixer Tap 2', cat: 'taps', keywords: 'basin mixer tap faucet', isNew: false },
+  { id: 29, file: 'Available Basin Mixer Tap 3.webp', name: 'Available Basin Mixer Tap 3', cat: 'taps', keywords: 'basin mixer tap faucet', isNew: false },
+  { id: 30, file: 'Available Basin Mixer Tap 4.webp', name: 'Available Basin Mixer Tap 4', cat: 'taps', keywords: 'basin mixer tap faucet', isNew: false },
+  { id: 31, file: 'Available Basin Mixer Tap 5.webp', name: 'Available Basin Mixer Tap 5', cat: 'taps', keywords: 'basin mixer tap faucet', isNew: false },
+  { id: 32, file: 'Modern Artistic Tap and Basin.webp', name: 'Modern Artistic Tap and Basin Set', cat: 'basins', keywords: 'artistic tap basin set ceramic modern', isNew: false },
+  { id: 33, file: 'Modern Tap Black.webp', name: 'Modern Tap Matte Black', cat: 'taps', keywords: 'tap matte black faucet mixer', isNew: false },
+  { id: 34, file: 'Modern Silver Tap Black 2.webp', name: 'Modern Silver Tap Black 2', cat: 'taps', keywords: 'silver tap black faucet mixer', isNew: false },
+  { id: 35, file: 'Modern Washing Hand Basin Artistic Black.webp', name: 'Modern Washing Hand Basin Artistic Black', cat: 'basins', keywords: 'washing hand basin artistic black washbasin', isNew: false },
+  { id: 36, file: 'Modern WC and Washing Basin.webp', name: 'Modern WC and Washing Basin Set', cat: 'toilets', keywords: 'wc washing basin set toilet commode', isNew: false },
+  { id: 37, file: 'White Modern Ceramic Basin.webp', name: 'White Modern Ceramic Basin', cat: 'basins', keywords: 'white modern ceramic basin washbasin sink', isNew: false },
+  { id: 38, file: 'Washing Hand Basin 1.webp', name: 'Washing Hand Basin Model 1', cat: 'basins', keywords: 'washing hand basin washbasin sink', isNew: false },
+  { id: 39, file: 'Washing Hand Basin 2.webp', name: 'Washing Hand Basin Model 2', cat: 'basins', keywords: 'washing hand basin washbasin sink', isNew: false },
+  { id: 40, file: 'Modern Water Closet Model 1.webp', name: 'Modern Water Closet Model 1', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 41, file: 'Modern Water Closet Model 2.webp', name: 'Modern Water Closet Model 2', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 42, file: 'Modern Water Closet Model 3.webp', name: 'Modern Water Closet Model 3', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 43, file: 'Modern Water Closet Model 4.webp', name: 'Modern Water Closet Model 4', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 44, file: 'Modern Water Closet Model 5.webp', name: 'Modern Water Closet Model 5', cat: 'toilets', keywords: 'water closet wc toilet commode', isNew: false },
+  { id: 45, file: 'Silver Tap Chrome.webp', name: 'Silver Tap Chrome', cat: 'taps', keywords: 'silver tap chrome faucet mixer', isNew: false },
+  { id: 46, file: 'Silver Tap Dual Set.webp', name: 'Silver Tap Dual Set', cat: 'taps', keywords: 'silver tap dual set faucet', isNew: false },
+  { id: 47, file: 'Silver Tap Model 2.webp', name: 'Silver Tap Model 2', cat: 'taps', keywords: 'silver tap model faucet mixer', isNew: false },
+  { id: 48, file: 'T-UK Premium Tap.webp', name: 'T-UK Premium Tap', cat: 'taps', keywords: 't-uk premium tap faucet mixer', isNew: false },
+  { id: 49, file: 'Plastic Tap 1.webp', name: 'Plastic Tap Model 1', cat: 'taps', keywords: 'plastic tap outdoor garden bibcock', isNew: false },
+  { id: 50, file: 'Plastic Tap Standard.webp', name: 'Plastic Tap Standard', cat: 'taps', keywords: 'plastic tap standard bibcock', isNew: false },
+  { id: 51, file: 'Washing Machine Angle Tap.webp', name: 'Washing Machine Angle Tap', cat: 'taps', keywords: 'washing machine angle tap bibcock valve', isNew: false }
 ];
 
 const PROJECT_IMAGES = [
@@ -147,8 +147,22 @@ function renderProductCards(containerId, filterCat = 'all', searchQuery = '', li
   }
 
   if (searchQuery && searchQuery.trim()) {
-    const q = searchQuery.toLowerCase().trim();
-    list = list.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+    const rawQ = searchQuery.toLowerCase().trim();
+    const normQ = rawQ.replace(/[-_\s]+/g, ' ');
+    list = list.filter(p => {
+      const name = p.name.toLowerCase();
+      const normName = name.replace(/[-_\s]+/g, ' ');
+      const cat = p.cat.toLowerCase();
+      const kw = (p.keywords || '').toLowerCase();
+      const normKw = kw.replace(/[-_\s]+/g, ' ');
+      return (
+        name.includes(rawQ) ||
+        normName.includes(normQ) ||
+        cat.includes(rawQ) ||
+        kw.includes(rawQ) ||
+        normKw.includes(normQ)
+      );
+    });
   }
 
   if (limit) {
@@ -160,7 +174,7 @@ function renderProductCards(containerId, filterCat = 'all', searchQuery = '', li
       <div style="grid-column: 1 / -1; text-align: center; padding: 48px 16px; color: var(--blue-200);">
         <i class="fas fa-search" style="font-size: 2.2rem; margin-bottom: 14px; opacity: 0.6;"></i>
         <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 8px;">No matching products found</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Try adjusting your search query or category filter.</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Try searching for S-Trap WC, Shower Room, Smart Sink, Jacuzzi, or Taps.</p>
       </div>
     `;
     return;
@@ -174,7 +188,7 @@ function renderProductCards(containerId, filterCat = 'all', searchQuery = '', li
 }
 
 // ── Render New Arrivals (Homepage) ───────────────────────────
-function renderNewArrivals(containerId, maxItems = 6) {
+function renderNewArrivals(containerId, maxItems = 12) {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.innerHTML = '';
@@ -802,9 +816,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactLinks();
   loadTranslations();
 
-  // Dynamic Product Catalog Render
-  renderNewArrivals('dynamicNewArrivalsHome', 6);
-  renderProductCards('dynamicProductCardsHome', 'all', '', 8);
+  // Dynamic Product Catalog Render (Show top 12 new arrivals & top 16 products on homepage)
+  renderNewArrivals('dynamicNewArrivalsHome', 12);
+  renderProductCards('dynamicProductCardsHome', 'all', '', 16);
   renderProductCards('dynamicProductCards', 'all', '');
   initCatalogFilters();
   renderProjectGallery('dynamicProjectGallery');
