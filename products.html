@@ -17,7 +17,7 @@
 
       <div class="branding">
         <a href="index.html" class="logo">
-          <img src="photos/business-logo.jpg" alt="Mezoki Logo" class="logo-img">
+          <img src="photos/business-logo.webp" alt="Mezoki Logo" class="logo-img">
           <span class="logo-text">Mezoki</span>
         </a>
         <span class="partner-tagline" data-i18n="trustedPlumbing">Trusted Plumbing Professionals</span>
@@ -65,8 +65,28 @@
     <div class="container">
       <h2 class="section-title" data-i18n="catalog">Our Catalog</h2>
       <p style="text-align: center; max-width: 650px; margin: -28px auto 44px; color: var(--text-secondary); font-size: 1.05rem;">
-        Discover our handpicked collection of high-grade plumbing equipment, designer taps, luxury basins, and durable fittings.
+        Discover our handpicked collection of high-grade plumbing fixtures, designer taps, luxury bathtubs, and durable fittings. All items available for immediate order.
       </p>
+
+      <!-- Catalog Controls: Real-time Search & Category Filters -->
+      <div class="catalog-controls">
+        <div class="search-box-wrapper">
+          <i class="fas fa-search search-icon" aria-hidden="true"></i>
+          <input type="text" id="productSearchInput" class="product-search-input" placeholder="Search fixtures (e.g. smart sink, jacuzzi, tap, WC, shower)..." aria-label="Search fixtures">
+        </div>
+
+        <div class="product-category-filters" role="tablist" aria-label="Filter products by category">
+          <button type="button" class="filter-btn active" data-filter="all">All Products (51)</button>
+          <button type="button" class="filter-btn" data-filter="new"><i class="fas fa-sparkles"></i> New Arrivals</button>
+          <button type="button" class="filter-btn" data-filter="sinks"><i class="fas fa-sink"></i> Smart Sinks</button>
+          <button type="button" class="filter-btn" data-filter="baths"><i class="fas fa-bath"></i> Bathtubs &amp; Jacuzzi</button>
+          <button type="button" class="filter-btn" data-filter="showers"><i class="fas fa-shower"></i> Rain Showers</button>
+          <button type="button" class="filter-btn" data-filter="cabinets"><i class="fas fa-door-closed"></i> Vanity Cabinets</button>
+          <button type="button" class="filter-btn" data-filter="toilets"><i class="fas fa-toilet"></i> Toilets &amp; WC</button>
+          <button type="button" class="filter-btn" data-filter="taps"><i class="fas fa-faucet"></i> Taps &amp; Mixers</button>
+          <button type="button" class="filter-btn" data-filter="basins"><i class="fas fa-hand-holding-water"></i> Washbasins</button>
+        </div>
+      </div>
 
       <!-- Dynamic Product Grid -->
       <div class="product-grid" id="dynamicProductCards">
@@ -74,6 +94,58 @@
       </div>
     </div>
   </main>
+
+  <!-- ── VIDEO SHOWCASE (LIVE PRODUCT DEMONSTRATIONS) ────────── -->
+  <section class="video-showcase-section" aria-label="Product Showcase Videos">
+    <div class="container">
+      <h2 class="section-title">Live Product &amp; Warehouse Showcase</h2>
+      <p style="text-align: center; max-width: 650px; margin: -28px auto 44px; color: var(--text-secondary); font-size: 1.05rem;">
+        Watch our heavy-duty plumbing fixtures, warehouse arrivals, and quality fittings in action.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <span class="video-badge"><i class="fas fa-video"></i> WAREHOUSE ARRIVAL</span>
+            <video controls preload="metadata" poster="photos/Products/Smart Digital Waterfall Kitchen Sink.webp" playsinline>
+              <source src="photos/Products/loading products video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-info">
+            <h4>New Luxury Stock Loading &amp; Warehouse Unboxing</h4>
+            <p>Direct look at our newly arrived premium bathroom vanities, smart sinks, and plumbing fixtures ready for delivery.</p>
+            <div class="video-footer">
+              <a href="https://wa.me/2348130627292?text=Hello%20Mezoki%20Plumbing%2C%20I%20saw%20your%20warehouse%20loading%20video%20and%20I%20would%20like%20to%20inquire%20about%20the%20available%20stock."
+                 target="_blank" rel="noopener noreferrer" class="cta-btn secondary" style="font-size:0.85rem; padding: 10px 18px;">
+                <i class="fab fa-whatsapp"></i> Inquire About Video Stock
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <span class="video-badge"><i class="fas fa-play-circle"></i> PRODUCT DEMO</span>
+            <video controls preload="metadata" poster="photos/Products/Luxury Freestanding Bathtub with Mixer.webp" playsinline>
+              <source src="photos/Products/products video 1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-info">
+            <h4>Premium Plumbing Products Quality Showcase</h4>
+            <p>Explore the craftsmanship, heavy-duty build, and flawless surface finish of our modern bathroom and kitchen fittings.</p>
+            <div class="video-footer">
+              <a href="https://wa.me/2348130627292?text=Hello%20Mezoki%20Plumbing%2C%20I%20saw%20your%20products%20demonstration%20video%20and%20I%20would%20like%20to%20order%20fittings."
+                 target="_blank" rel="noopener noreferrer" class="cta-btn secondary" style="font-size:0.85rem; padding: 10px 18px;">
+                <i class="fab fa-whatsapp"></i> Order Featured Fixtures
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── CONTACT SECTION ─────────────────────────────────── -->
   <section class="contact-section">
